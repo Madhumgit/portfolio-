@@ -299,6 +299,90 @@ min-height: 100vh;
               box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
               transform: scale(1.05); /* Slight zoom effect */
           }
+          .site-footer {
+            color: #cdd1d5;
+            padding: 40px 20px;
+            font-family: 'Arial', sans-serif;
+            width: 100%;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li a {
+            color: #cdd1d5;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-section.about .logo {
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin: 10px 0;
+        }
+        
+        .footer-links a {
+            color: #cdd1d5;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin-top: 10px;
+        }
+        
+        .social-icons a img {
+            width: 32px;
+            height: 32px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #5e3dd4;
+            padding: 6px;
+        }
+        
     </style>
 </head>
 <body>
@@ -356,6 +440,56 @@ min-height: 100vh;
             <p class="text-66ccff mt-1" id="modal-date"></p>
         </div>
     </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="logo">⟪⟫</div>
+                <p>Unlocking Confidence in Every Byte,<br>
+                   Connect with us for a fortress of data security.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">eBooks</a></li>
+                    <li><a href="#">Glossary</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Research</h4>
+                <ul>
+                    <li><a href="#">Leaderboards</a></li>
+                    <li><a href="#">Synthetic Datasets</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                    <li><a href="#">Patents</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Philosophy</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Abluva. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Legal</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a> |
+                <a href="#">Cookie Policy</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X (Twitter)" /></a>
+            </div>
+        </div>
+    </footer>
+    
 
     <script>
         // Exploit data (33 entries)

@@ -615,10 +615,11 @@ z-index: 0;
       color: #fff;
     }
     .site-footer {
-      background: linear-gradient(135deg, #0d0b14, #2c1459);
+    
       color: #cdd1d5;
       padding: 40px 20px;
       font-family: 'Arial', sans-serif;
+      margin-top: 260px;
   }
   
   .footer-content {
