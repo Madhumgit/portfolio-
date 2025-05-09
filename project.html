@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>Portfolio Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+            
+        }
+        .animated-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+            animation: slideFadeIn 2s ease-out forwards;
+            opacity: 0; /* Start hidden */
+            transform: translateY(-20px); /* Start slightly above */
+        }
+        
+        @keyframes slideFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animated-title {
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+            color: #5e63ff; /* Match your timeline dots */
+        }
+                
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #ccc;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(50px); /* Start position for fade-up effect */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .container.right {
+            left: 50%;
+            width: 500px;
+        }
+        .container.left {
+            left: -100px;
+            width: 500px;
+        }
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position when visible */
+        }
+        .content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: opacity 0.3s ease; /* For hover fade-out effect */
+        }
+        .content:hover {
+            opacity: 30%; /* Fade out on hover */
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #14169c;
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        .container.left::before {
+            right: -10px;
+        }
+        .container.right::before {
+            left: -10px;
+        }
+        .date {
+            position: absolute;
+            top: 15px;
+            font-weight: bold;
+        }
+        .container.left .date {
+            right: -120px;
+        }
+        .container.right .date {
+            left: -120px;
+        }
+        .certificate-img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        color: white;
+            background: rgba(255, 255, 255, 0.05);  /* Very light transparent white */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(80px);           /* Glass blur */
+            -webkit-backdrop-filter: blur(10px);   /* Safari support */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            z-index: 999;
+            transition: all 0.4s ease-in-out;
+        }
+        
+          
+          /* Default Navbar Links */
+          .quote-bt {
+              display: flex;
+              gap: 40px; /* Default space between items */
+              transition: gap 0.4s ease-in-out;
+              margin-top: 10px;
+              background-color: transparent;
+            border-color: transparent;
+              color: white;
+          }
+         
+          
+          .navbar a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.4s ease-in-out;
+          }
+          
+          .navbar a:hover {
+            color: #2ca2bf;
+            border-color: white;
+            box-shadow: white; /* or any cool hover color you like */
+          }
+          
+      
+      
+      
+          .quote-btn {
+              padding: 10px 20px;
+              background: rgba(255, 255, 255, 0.3); /* Transparent white */
+              color: white;
+              border-radius: 20px;
+              border: none;
+              margin-top: 10px;
+              cursor: pointer;
+              backdrop-filter: blur(5px); /* Initial slight blur */
+              transition: all 0.3s ease-in-out;
+          }
+          
+          .quote-btn:hover {
+              background: rgba(255, 255, 255, 0.5); /* Lighter blur effect */
+              backdrop-filter: blur(10px); /* Stronger blur */
+              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
+              transform: scale(1.05); /* Slight zoom effect */
+          }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar" id="navbar">
+        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
+        <button class="quote-bt">
+            <a href="index.html">Home</a>
+        </button>
+        <button class="quote-bt">
+            <a href="hallofframe.html">Hall of Frame</a>
+        </button>
+        <button class="quote-bt">
+            <a href="Skills.html">Skills</a>
+        </button>
+        <button class="quote-bt">
+            <a href="project.html">Experience</a>
+        </button>
+        <button class="quote-bt">
+            <a href="experiment.html">Certificate</a>
+        </button>
+        <button class="quote-bt">
+            <a href="certificate.html">projects</a>
+        </button>
+        <button class="quote-bt">
+            <a href="E:\bby prot\cvber portofolio\resume.html">resume</a>
+        </button>
+        <button class="quote-btn" id="con">Contact me</button>
+    </nav>
+    
+    <h1 class="animated-title">My Portfolio Timeline</h1>
+    <div class="timeline">
+        <div class="container left">
+            <div class="date">December 2018</div>
+            <div class="content">
+                <h2>Craftathon 2018</h2>
+                <p>During Christmas, I helped with Craftathon 2018! This time we were able to raise $1,744. Like in 2017, I mainly worked as a backend developer.</p>
+                <img src="https://via.placeholder.com/200x100?text=Craftathon+Certificate" alt="Craftathon 2018 Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container right">
+            <div class="date">January 2019</div>
+            <div class="content">
+                <h2>Triton Web Interface</h2>
+                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
+                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container left">
+            <div class="date">December 2019</div>
+            <div class="content">
+                <h2>Battleships</h2>
+                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
+                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container right">
+            <div class="date">January 2019</div>
+            <div class="content">
+                <h2>Triton Web Interface</h2>
+                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
+                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container left">
+            <div class="date">December 2019</div>
+            <div class="content">
+                <h2>Battleships</h2>
+                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
+                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container right">
+            <div class="date">January 2019</div>
+            <div class="content">
+                <h2>Triton Web Interface</h2>
+                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
+                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
+            </div>
+        </div>
+        <div class="container left">
+            <div class="date">December 2019</div>
+            <div class="content">
+                <h2>Battleships</h2>
+                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
+                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
+            </div>
+        </div>
+      
+    </div>
+
+    <script>
+        // Function to check if an element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
+
+        // Add scroll event listener to apply fade-up effect
+        window.addEventListener('scroll', () => {
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => {
+                if (isInViewport(container)) {
+                    container.classList.add('visible');
+                }
+            });
+        });
+
+        // Initial check on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => {
+                if (isInViewport(container)) {
+                    container.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
