@@ -7,11 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+          }
+          
+          /* Particle canvas from tsParticles */
+          #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: black;
             min-height: 100vh;
-            padding: 3rem;
+          
             overflow-x: hidden;
             scroll-behavior: smooth;
             color: white;
@@ -21,8 +39,8 @@
             top: 0px;
             left: 50%;
             transform: translateX(-50%);
-            width: 85%;
-            max-width: 1100px;
+            width: 100%;
+            max-width: 1120px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -406,12 +424,20 @@
 </head>
 <body>
     
-    <div id="particles-js"></div>
+    <div class="background"></div>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="particles-config.js"></script>
 
     <!-- Header Section -->
   
     <nav class="navbar" id="navbar">
         <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
+        <button class="quote-bt">
+            <a href="index.html">Home</a>
+        </button>
         <button class="quote-bt">
             <a href="hallofframe.html">Hall of Frame</a>
         </button>
@@ -443,7 +469,7 @@
     
     <div class="card-grid">
         <div class="card">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\VAPT.png" alt="">
+            <img class="img" src="" alt="">
             <h3>Card 1</h3>
             <p>• Vulnerability Assessment & Penetration Testing (VAPT)</p>
         </div>
@@ -497,7 +523,7 @@
     
     <div class="logo-container">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\3246741_burpsuite_security_software_icon.png" alt="Burp Suite Logo">
+            <img src="images/3246741_burpsuite_security_software_icon.png" alt="Burp Suite Logo">
         </div>
         <div class="logo-box">
             <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\metasploit-framework-logo.svg" alt="Metasploit Logo">
@@ -694,50 +720,7 @@
                 return;
             }
 
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: ['#00ddeb', '#ff4d4d', '#7a00ff'] },
-                    shape: { type: 'circle' },
-                    opacity: { 
-                        value: 0.5, 
-                        random: true, 
-                        anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false } 
-                    },
-                    size: { value: 3, random: true },
-                    line_linked: { 
-                        enable: true, 
-                        distance: 150, 
-                        color: '#00ddeb', 
-                        opacity: 0.4, 
-                        width: 1,
-                        color_auto: true
-                    },
-                    move: { 
-                        enable: true, 
-                        speed: 2, 
-                        direction: 'none', 
-                        random: false, 
-                        straight: false, 
-                        out_mode: 'out', 
-                        bounce: false 
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: { 
-                        onhover: { enable: true, mode: 'repulse' }, 
-                        onclick: { enable: true, mode: 'push' }, 
-                        resize: true 
-                    },
-                    modes: { 
-                        repulse: { distance: 100, duration: 0.4 }, 
-                        push: { particles_nb: 4 } 
-                    }
-                },
-                retina_detect: true
-            });
-
+        
             // Custom color animation for particles
             const particles = window.pJSDom[0].pJS.particles;
             setInterval(() => {
@@ -751,6 +734,39 @@
 
             console.log('particles.js initialized successfully with enhanced animations');
         });
+        tsParticles.load("tsparticles", {
+            particles: {
+              number: {
+                value: 40,
+              },
+              size: {
+                value: 2,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+              },
+              color: {
+                value: "#ffffff"
+              },
+              line_linked: {
+                enable: true,
+                color: "#ffffff",
+                opacity: 0.1
+              }
+            },
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                }
+              }
+            },
+            background: {
+              color: "transparent"
+            }
+          });
     </script>
 </body>
 </html>

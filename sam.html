@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="particles-config.js"></script>
+</body>
+<style>
+    /* Full screen gradient */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    z-index: -2;
+  }
+  
+  /* Particle canvas from tsParticles */
+  #tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  
+ 
+  
+</style>
+<script>
+    tsParticles.load("tsparticles", {
+        particles: {
+          number: {
+            value: 40,
+          },
+          size: {
+            value: 2,
+          },
+          move: {
+            enable: true,
+            speed: 1,
+          },
+          color: {
+            value: "#ffffff"
+          },
+          line_linked: {
+            enable: true,
+            color: "#ffffff",
+            opacity: 0.1
+          }
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab"
+            }
+          }
+        },
+        background: {
+          color: "transparent"
+        }
+      });
+      
+</script>
+</html>

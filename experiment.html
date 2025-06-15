@@ -7,6 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+          }
+          
+          /* Particle canvas from tsParticles */
+          #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
         body {
             
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -447,7 +465,12 @@
 </head>
 <body>
     
-    <div id="particles-js"></div>
+    <div class="background"></div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="particles-config.js"></script>
 
     <!-- Header Section -->
   
@@ -555,6 +578,39 @@
     </footer>
     
     <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+              number: {
+                value: 40,
+              },
+              size: {
+                value: 2,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+              },
+              color: {
+                value: "#ffffff"
+              },
+              line_linked: {
+                enable: true,
+                color: "#ffffff",
+                opacity: 0.1
+              }
+            },
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                }
+              }
+            },
+            background: {
+              color: "transparent"
+            }
+          });
         // Certificate data (21 certificates)
         const certificates = [
             { title: "Certified Web Developer", issuer: "Coursera", date: "Jan 2024", image: "ALL IMAGES/CERTIFICATES/Internship CyberDosti.jpg", link: "ALL IMAGES\CERTIFICATES\Internship CyberDosti.jpg" },

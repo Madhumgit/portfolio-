@@ -7,6 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+          }
+          
+          /* Particle canvas from tsParticles */
+          #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -386,6 +404,12 @@ min-height: 100vh;
     </style>
 </head>
 <body>
+    <div class="background"></div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="particles-config.js"></script>
 
     <nav class="navbar" id="navbar">
         <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
@@ -492,6 +516,39 @@ min-height: 100vh;
     
 
     <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+              number: {
+                value: 40,
+              },
+              size: {
+                value: 2,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+              },
+              color: {
+                value: "#ffffff"
+              },
+              line_linked: {
+                enable: true,
+                color: "#ffffff",
+                opacity: 0.1
+              }
+            },
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                }
+              }
+            },
+            background: {
+              color: "transparent"
+            }
+          });
         // Exploit data (33 entries)
         const exploits = [
             { title: "Forum Exploit #33", platform: "Forum", date: "Sep 2025", image: "ALL IMAGES/VULNS/HTTP-REQUEST-SMUGGLE.png" },

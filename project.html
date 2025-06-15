@@ -9,6 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <title>Portfolio Timeline</title>
     <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+          }
+          
+          /* Particle canvas from tsParticles */
+          #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -276,6 +294,12 @@
     </style>
 </head>
 <body>
+    <div class="background"></div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="particles-config.js"></script>
     
     <nav class="navbar" id="navbar">
         <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
@@ -415,6 +439,39 @@
     
 
     <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+              number: {
+                value: 40,
+              },
+              size: {
+                value: 2,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+              },
+              color: {
+                value: "#ffffff"
+              },
+              line_linked: {
+                enable: true,
+                color: "#ffffff",
+                opacity: 0.1
+              }
+            },
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                }
+              }
+            },
+            background: {
+              color: "transparent"
+            }
+          });
         // Function to check if an element is in viewport
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();
