@@ -2,86 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>About Me Section</title>
+  <style>
+   
+
+   
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 100px;
+    }
+
+    .about-text {
+      flex: 1;
+      padding-right: 50px;
+    }
+
+    .about-text h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .about-text h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ff74c6;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .about-text .btn {
+      padding: 12px 30px;
+      background: #00f0ff;
+      color: #0c0c1e;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .about-text .btn:hover {
+      background: #33ffe6;
+    }
+
+    .glow-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .glow-wrapper::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00f0ff, #33ffe6, #ff94ec, #ff74c6);
+      background-size: 400% 400%;
+      animation: glow 6s ease infinite;
+      z-index: 0;
+      filter: blur(80px);
+      opacity: 0.9;
+    }
+
+    .glow-wrapper img {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #0c0c1e;
+      z-index: 1;
+    }
+
+    @keyframes glow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+  </style>
 </head>
 <body>
-  <div class="background"></div>
 
-  
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script src="particles-config.js"></script>
+
+  <div class="about-section">
+    <div class="about-text">
+      <h1>About <span style="color:#00f0ff;">Me</span></h1>
+      <h2>Full Stack Developer!</h2>
+      <p>
+        I am a skilled web designer with over 2 years of experience in the industry.
+        My passion lies in creating captivating website designs and enhancing them through frontend and backend technologies.
+        I specialize in building fast, responsive, and visually appealing websites. I love exploring new tech stacks and taking on exciting projects.
+      </p>
+      <button class="btn">More About Me</button>
+    </div>
+
+    <div class="glow-wrapper">
+      <img src="your-image.jpg" alt="Profile Image">
+    </div>
+  </div>
+
 </body>
-<style>
-    /* Full screen gradient */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    overflow: hidden;
-  }
-  
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    z-index: -2;
-  }
-  
-  /* Particle canvas from tsParticles */
-  #tsparticles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-  }
-  
- 
-  
-</style>
-<script>
-    tsParticles.load("tsparticles", {
-        particles: {
-          number: {
-            value: 40,
-          },
-          size: {
-            value: 2,
-          },
-          move: {
-            enable: true,
-            speed: 1,
-          },
-          color: {
-            value: "#ffffff"
-          },
-          line_linked: {
-            enable: true,
-            color: "#ffffff",
-            opacity: 0.1
-          }
-        },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: true,
-              mode: "grab"
-            }
-          }
-        },
-        background: {
-          color: "transparent"
-        }
-      });
-      
-</script>
 </html>

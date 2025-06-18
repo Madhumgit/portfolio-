@@ -34,109 +34,7 @@
             background-color: black;
             
         }
-        .animated-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #333;
-            margin-top: 80px;
-            animation: slideFadeIn 2s ease-out forwards;
-            opacity: 0; /* Start hidden */
-            transform: translateY(-20px); /* Start slightly above */
-        }
-        
-        @keyframes slideFadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animated-title {
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-            color: #5e63ff; /* Match your timeline dots */
-        }
-                
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: #ccc;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        .container {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            opacity: 0; /* Start hidden for animation */
-            transform: translateY(50px); /* Start position for fade-up effect */
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .container.right {
-            left: 50%;
-            width: 500px;
-        }
-        .container.left {
-            left: -100px;
-            width: 500px;
-        }
-        .container.visible {
-            opacity: 1;
-            transform: translateY(0); /* Move to original position when visible */
-        }
-        .content {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: opacity 0.3s ease; /* For hover fade-out effect */
-        }
-        .content:hover {
-            opacity: 30%; /* Fade out on hover */
-        }
-        .container::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #14169c;
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-        }
-        .container.left::before {
-            right: -10px;
-        }
-        .container.right::before {
-            left: -10px;
-        }
-        .date {
-            position: absolute;
-            top: 15px;
-            font-weight: bold;
-        }
-        .container.left .date {
-            right: -120px;
-        }
-        .container.right .date {
-            left: -120px;
-        }
-        .certificate-img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
+      
         .navbar {
             position: fixed;
             top: 0px;
@@ -207,11 +105,13 @@
               transform: scale(1.05); /* Slight zoom effect */
           }
           .site-footer {
+              background-color: #041c23;
             color: #cdd1d5;
             padding: 40px 20px;
             font-family: 'Arial', sans-serif;
-            width: 100%;
+            width: 1230px;
             margin-top: 40px;
+          margin-left: -30px;
         }
         
         .footer-content {
@@ -289,7 +189,131 @@
             background-color: #5e3dd4;
             padding: 6px;
         }
+          
         
+        .timeline-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            padding: 40px 0;
+            margin-left: 90px;
+           
+        }
+        .timeline {
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: transparent;
+            border: 2px dashed #00e1ff;
+            z-index: 1;
+            animation: dashFlow 5s linear infinite;
+            transition: box-shadow 0.3s ease; /* Smooth transition for glow */
+        }
+        .timeline.glow::before {
+            box-shadow: 0 0 20px 5px #00e1ff, 0 0 40px 10px rgba(0, 225, 255, 0.5); /* Glow effect */
+            border-image: linear-gradient(to bottom, transparent 50%, transparent 50%) 1; /* Make dashes transparent */
+            animation: none; /* Stop dash animation during glow */
+        }
+        @keyframes dashFlow {
+            0% {
+                border-image: linear-gradient(to bottom, #00e1ff 50%, transparent 50%) 1;
+            }
+            100% {
+                border-image: linear-gradient(to bottom, transparent 50%, #00e1ff 50%) 1;
+            }
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+            transform: translateX(-50px);
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+        .timeline-item .dot {
+            width: 20px;
+            height: 20px;
+            background: #00b7eb;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            border: 3px solid #fff;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 183, 235, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(0, 183, 235, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 183, 235, 0);
+            }
+        }
+        .timeline-card {
+           background-color: #041c23;
+            color: #fffefe;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 45%;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Indicate the card is clickable */
+        }
+        .timeline-item:nth-child(odd) .timeline-card {
+            margin-right: auto;
+        }
+        .timeline-item:nth-child(even) .timeline-card {
+            margin-left: auto;
+        }
+        .timeline-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 183, 235, 0.5);
+        }
+        .timeline-card h3 {
+            margin: 0 0 10px;
+            color: #00b7eb;
+        }
+        .timeline-card p {
+            margin: 0 0 10px;
+            font-size: 14px;
+        }
+        .timeline-card .acknowledgement {
+            background: #151515;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .spacer {
+            flex: 1;
+        }
+  
         
     </style>
 </head>
@@ -313,80 +337,95 @@
             <a href="Skills.html">Skills</a>
         </button>
         <button class="quote-bt">
-            <a href="project.html">Experience</a>
+            <a href="project.html">Projects</a>
         </button>
         <button class="quote-bt">
             <a href="experiment.html">Certificate</a>
         </button>
         <button class="quote-bt">
-            <a href="certificate.html">projects</a>
+            <a href="certificate.html">Bugboundry</a>
         </button>
         <button class="quote-bt">
-            <a href="E:\bby prot\cvber portofolio\resume.html">resume</a>
+            <a href="resume.html">resume</a>
         </button>
         <button class="quote-btn" id="con">Contact me</button>
     </nav>
     
-    <h1 class="animated-title">My Portfolio Timeline</h1>
-    <div class="timeline">
-        <div class="container left">
-            <div class="date">December 2018</div>
-            <div class="content">
-                <h2>Craftathon 2018</h2>
-                <p>During Christmas, I helped with Craftathon 2018! This time we were able to raise $1,744. Like in 2017, I mainly worked as a backend developer.</p>
-                <img src="https://via.placeholder.com/200x100?text=Craftathon+Certificate" alt="Craftathon 2018 Certificate" class="certificate-img">
+
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Craftathon 2018</h3>
+                    <p>During Christmas, I helped with Craftathon 2018! This time we were able to raise $1,744. Like in 2017, I mainly worked as a backend developer.</p>
+                    <div class="acknowledgement">
+                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/amit.png" alt="Craftathon 2018" style="width: 500px; height: 200px; vertical-align: middle;">
+                        <strong>Acknowledgement of Completed VAPT for LLM Chatbot Project</strong><br>
+                        <em>From: John Doe, john.doe@example.com</em><br>
+                        Dear Mr. Watson,<br>
+                        I hope you are doing well.<br>
+                        This is to acknowledge the successful completion of the Vulnerability Assessment and Penetration Testing (VAPT) for the LLM-based Chatbot Project. Your team has once again shown exemplary skills and dedication.<br>
+                        Best regards,<br>
+                        John Doe
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="spacer"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Triton Web Interface</h3>
+                    <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Piggott premium plugin, I've introduced the TW3 Web Interface to configure the plugin. It was my first React and other new-technology web app.</p>
+                    <div class="acknowledgement">
+              <img src="../../ALL IMAGES/ACKNOWLEGEMENT/bug.png" alt="Craftathon 2018" style="width: 500px; height: 200px; vertical-align: middle;">
+
+                        <strong>Confirmation of Completion - Penetration Testing for Retail & Education Platforms</strong>
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="spacer"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Project Nebula 2019</h3>
+                    <p>Led the development of Project Nebula, a cloud-based web application for real-time data visualization. Focused on optimizing the backend with Node.js and integrating WebSocket for live updates.</p>
+                    <div class="acknowledgement">
+                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/NCIIPC.png" alt="Project Nebula 2019" style="width: 500px; height: 200px; vertical-align: middle;">
+                        <strong>Certificate of Excellence - Best Innovative Project 2019</strong>
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="spacer"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>CyberSec Certification 2020</h3>
+                    <p>Completed the Certified Ethical Hacker (CEH) certification, enhancing my skills in cybersecurity. Applied knowledge to secure web applications and conduct penetration testing.</p>
+                    <div class="acknowledgement">
+                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/crak.png" alt="CyberSec Certification 2020" style="width: 500px; height: 200px; vertical-align: middle;">
+                        <strong>Certified Ethical Hacker (CEH) - EC-Council</strong>
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="spacer"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>AI Summit 2021</h3>
+                    <p>Presented a talk on "AI-Powered Web Interfaces" at the Global AI Summit 2021. Shared insights on integrating machine learning models with React for enhanced user experiences.</p>
+                    <div class="acknowledgement">
+                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/5000.png" alt="AI Summit 2021" style="width: 500px; height: 200px; vertical-align: middle;">
+                        <strong>Speaker Recognition - Global AI Summit 2021</strong>
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="spacer"></div>
             </div>
         </div>
-        <div class="container right">
-            <div class="date">January 2019</div>
-            <div class="content">
-                <h2>Triton Web Interface</h2>
-                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
-                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
-            </div>
-        </div>
-        <div class="container left">
-            <div class="date">December 2019</div>
-            <div class="content">
-                <h2>Battleships</h2>
-                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
-                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
-            </div>
-        </div>
-        <div class="container right">
-            <div class="date">January 2019</div>
-            <div class="content">
-                <h2>Triton Web Interface</h2>
-                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
-                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
-            </div>
-        </div>
-        <div class="container left">
-            <div class="date">December 2019</div>
-            <div class="content">
-                <h2>Battleships</h2>
-                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
-                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
-            </div>
-        </div>
-        <div class="container right">
-            <div class="date">January 2019</div>
-            <div class="content">
-                <h2>Triton Web Interface</h2>
-                <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Pigot premium plugin, I've introduced TW3 Web Interface to configure the plugin. It was my first consumer-facing web app made with React and other new technologies.</p>
-                <img src="https://via.placeholder.com/200x100?text=Triton+Certificate" alt="Triton Web Interface Certificate" class="certificate-img">
-            </div>
-        </div>
-        <div class="container left">
-            <div class="date">December 2019</div>
-            <div class="content">
-                <h2>Battleships</h2>
-                <p>An online multiplayer game you can play right now! In October 2019, I started to develop a small battleships online multiplayer game for my school class. Two months later, that game is now ready!</p>
-                <img src="https://via.placeholder.com/200x100?text=Battleships+Certificate" alt="Battleships Certificate" class="certificate-img">
-            </div>
-        </div>
-      
     </div>
+
+ 
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section about">
@@ -500,6 +539,40 @@
                 }
             });
         });
+        const timeline = document.querySelector('.timeline');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const cards = document.querySelectorAll('.timeline-card');
+
+        // Scroll visibility check for fade-in animation
+        const checkVisibility = () => {
+            const triggerBottom = window.innerHeight * 0.8;
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < triggerBottom) {
+                    item.classList.add('visible');
+                }
+            });
+        };
+
+        // Add click/touch event to cards
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove glow class from timeline to reset any previous animation
+                timeline.classList.remove('glow');
+                // Trigger glow effect by adding the class
+                timeline.classList.add('glow');
+            });
+
+            // Support touch devices
+            card.addEventListener('touchstart', () => {
+                timeline.classList.remove('glow');
+                timeline.classList.add('glow');
+            });
+        });
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    
     </script>
 </body>
 </html>

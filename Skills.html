@@ -7,14 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -2;
-          }
+       
           
           /* Particle canvas from tsParticles */
           #tsparticles {
@@ -27,34 +20,35 @@
           }
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
             min-height: 100vh;
           
             overflow-x: hidden;
             scroll-behavior: smooth;
-            color: white;
+           
         }
-        .navbar {
-            position: fixed;
-            top: 0px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1120px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        color: white;
-            background: rgba(255, 255, 255, 0.05);  /* Very light transparent white */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(80px);           /* Glass blur */
-            -webkit-backdrop-filter: blur(10px);   /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            z-index: 999;
-            transition: all 0.4s ease-in-out;
-        }
+       .navbar {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  z-index: 999;
+  /* transition: all 0.4s ease-in-out; */  /* Remove this line */
+}
+
         
           
           /* Default Navbar Links */
@@ -110,10 +104,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            background: black;
             background-size: 400%;
             animation: bgShift 15s ease infinite;
             z-index: -1;
+            color: white;
         }
 
         @keyframes bgShift {
@@ -165,7 +160,7 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.02);
             border: 2px solid #fffbe6;
             border-radius: 25px;
             padding: 20px;
@@ -175,16 +170,7 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .git {
-            background-color: white;
-            color: blueviolet;
-            text-decoration: underline;
-        }
-
-        .git:hover {
-            background-color: rgb(70, 62, 62);
-            color: rgb(252, 251, 251);
-        }
+      
 
         .card:hover {
             transform: translateY(-9px) scale(1.03);
@@ -216,6 +202,7 @@
             border-radius: 25px;
             padding: 20px;
             color: white;
+            height: 450px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             text-align: center;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -225,6 +212,10 @@
             transform: translateY(-9px) scale(1.03);
             border-color: #fffdfe;
             box-shadow: 0 0 16px #37a8c8;
+        }
+        .card1 p{
+            height: 80px;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -311,6 +302,7 @@
 
         .logo-box {
             width: 150px;
+            color: white;
             height: 130px;
             border: 2px solid #3696a0;
             border-radius: 10px;
@@ -337,11 +329,13 @@
             cursor: pointer;
         }
         .site-footer {
+              background-color: #041c23;
             color: #cdd1d5;
             padding: 40px 20px;
             font-family: 'Arial', sans-serif;
             width: 100%;
             margin-top: 40px;
+           
         }
         
         .footer-content {
@@ -350,6 +344,7 @@
             justify-content: space-between;
             max-width: 1200px;
             margin: auto;
+            margin-left: 40px;
         }
         
         .footer-section {
@@ -445,16 +440,16 @@
             <a href="Skills.html">Skills</a>
         </button>
         <button class="quote-bt">
-            <a href="project.html">Experience</a>
+            <a href="project.html">Projects</a>
         </button>
         <button class="quote-bt">
             <a href="experiment.html">Certificate</a>
         </button>
         <button class="quote-bt">
-            <a href="E:\bby prot\cvber portofolio\certificate.html">projects</a>
+            <a href="certificate.html">Bugbountry</a>
         </button>
         <button class="quote-bt">
-            <a href="E:\bby prot\cvber portofolio\resume.html">Services</a>
+            <a href="resume.html">Resume</a>
         </button>
         <button class="quote-btn" id="con">Contact me</button>
     </nav>
@@ -469,22 +464,22 @@
     
     <div class="card-grid">
         <div class="card">
-            <img class="img" src="" alt="">
+            <img class="img" src="../../Images/VAPT.png" alt="">
             <h3>Card 1</h3>
             <p>• Vulnerability Assessment & Penetration Testing (VAPT)</p>
         </div>
         <div class="card">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\part4.png" alt="">
+            <img class="img" src="../../Images/part4.png" alt="">
             <h3>Card 2</h3>
             <p>• Expertise in Web, Network, API, and LLM AI security, with hands-on experience addressing OWASP Top vulnerabilities</p>
         </div>
         <div class="card">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\part5.png" alt="">
+            <img class="img" src="../../Images/part5.png" alt="">
             <h3>Card 3</h3>
             <p>This is the third card.</p>
         </div>
         <div class="card">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\part6.png" alt="">
+            <img class="img" src="../../Images/part6.png" alt="">
             <h3>• Red Team Engagements & Threat Emulation</h3>
             <p>This is the third card.</p>
         </div>
@@ -492,26 +487,26 @@
 
     <div class="card-grid1">
         <div class="card1">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\bug.png" alt="">
+            <img class="img" src="../../Images/Sca.png" alt="">
             <h3>• Bug Bounty Hunting - Web, API, Network.<br>• Skilled in Static/Dynamic Application Security Testing (SAST/DAST)</h3>
             <p>This is the first card.</p>
         </div>
         <div class="card1">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\part2.png" alt="">
+            <img class="img" src="../../Images/part2.png" alt="">
             <h3>• Network Exploitation & Lateral Movement</h3>
             <p>This is the second card.</p>
         </div>
         <div class="card1">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\Sca.png" alt="">
+            <img class="img" src="../../Images/bug.png" alt="">
             <h3>• DDoS-Wave</h3>
-            <p>Is a powerful and customizable network stress-testing tool crafted for cybersecurity enthusiasts, professionals, and learners. Simulate a flood of TCP packets with randomized spoofed IPs to test the resilience of systems in controlled environments. You're learning about network security ethical penetration testing.</p>
-            <button class="git"><a href="https://github.com/vettrivel007/RepoVulnScan">GitHub</a></button>
+            <p>Is a powerful and customizable network stress-testing tool crafted for cybersecurity enthusiasts, professionals, and learners. Simulate a flood of TCP packets with randomized spoofed IPs to test the resilience of systems in controlled environments.</p>
+
         </div>
         <div class="card1">
-            <img class="img" src="E:\bby prot\cvber portofolio\Images\part3.png" alt="">
+            <img class="img" src="../../Images/part3.png" alt="">
             <h3>RepoVulnScan</h3>
-            <p>RepoVulnScan is a security tool designed to scan GitHub repositories for known vulnerabilities in dependency files. It checks package versions against vulnerability databases using OSV API and helps identify potential security risks in open-source projects. The tool supports various ecosystems like npm, PyPI, Go, Maven, Gradle, crates.io and more.</p>
-            <button class="git"><a href="https://github.com/vettrivel007/RepoVulnScan">GitHub</a></button>
+            <p>RepoVulnScan is a security tool designed to scan GitHub repositories for known vulnerabilities in dependency files. The tool supports various ecosystems like npm, PyPI, Go, Maven, Gradle, crates.io and more.</p>
+            
         </div>
     </div>
 
@@ -523,73 +518,73 @@
     
     <div class="logo-container">
         <div class="logo-box">
-            <img src="images/3246741_burpsuite_security_software_icon.png" alt="Burp Suite Logo">
+            <img src="../../ALL IMAGES/LOGO/3246741_burpsuite_security_software_icon.png" alt="Burp Suite Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\metasploit-framework-logo.svg" alt="Metasploit Logo">
+            <img src="../../ALL IMAGES/LOGO/4691397_postman_icon.png" alt="Metasploit Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\icons8-nmap-48.png" alt="Nmap Logo">
+            <img src="../../ALL IMAGES/LOGO/icons8-nmap-48.png" alt="Nmap Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\john-logo.svg" alt="John the Ripper Logo">
+            <img src="../../ALL IMAGES/LOGO/john-logo.svg" alt="John the Ripper Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\Postman.png" alt="Postman Logo">
-        </div>
-    </div>
-
-    <div class="logo-container">
-        <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\beef-xss-logo.svg" alt="BeEF Logo">
-        </div>
-        <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\powershell-empire-logo.svg" alt="PowerShell Empire Logo">
-        </div>
-        <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\responder-logo.svg" alt="Responder Logo">
-        </div>
-        <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\amass-logo.svg" alt="Amass Logo">
-        </div>
-        <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\theharvester-logo.svg" alt="TheHarvester Logo">
+            <img src="../../ALL IMAGES/LOGO/Postman.png" alt="Postman Logo">
         </div>
     </div>
 
     <div class="logo-container">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\sqlmap-logo.svg" alt="SQLMap Logo">
+            <img src="../../ALL IMAGES/LOGO/beef-xss-logo.svg" alt="BeEF Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\pngaaa.com-4042958.png" alt="Logo">
+            <img src="../../ALL IMAGES/LOGO/powershell-empire-logo.svg" alt="PowerShell Empire Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\nikto-logo.svg" alt="Nikto Logo">
+            <img src="../../ALL IMAGES/LOGO/responder-logo.svg" alt="Responder Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\evil-winrm-logo.svg" alt="Evil-WinRM Logo">
+            <img src="../../ALL IMAGES/LOGO/amass-logo.svg" alt="Amass Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\hashcat-logo.svg" alt="Hashcat Logo">
+            <img src="../../ALL IMAGES/LOGO/theharvester-logo.svg" alt="TheHarvester Logo">
         </div>
     </div>
 
     <div class="logo-container">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\commix-logo.svg" alt="Commix Logo">
+            <img src="../../ALL IMAGES/LOGO/sqlmap-logo.svg" alt="SQLMap Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\crackmapexec-logo.svg" alt="CrackMapExec Logo">
+            <img src="../../ALL IMAGES/LOGO/pngaaa.com-4042958.png" alt="Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\maltego-logo.svg" alt="Maltego Logo">
+            <img src="../../ALL IMAGES/LOGO/nikto-logo.svg" alt="Nikto Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\aircrack-ng-logo.svg" alt="Aircrack-ng Logo">
+            <img src="../../ALL IMAGES/LOGO/evil-winrm-logo.svg" alt="Evil-WinRM Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\ffuf-logo.svg" alt="FFUF Logo">
+            <img src="../../ALL IMAGES/LOGO/hashcat-logo.svg" alt="Hashcat Logo">
+        </div>
+    </div>
+
+    <div class="logo-container">
+        <div class="logo-box">
+            <img src="../../ALL IMAGES/LOGO/commix-logo.svg" alt="Commix Logo">
+        </div>
+        <div class="logo-box">
+            <img src="../../ALL IMAGES/LOGO/crackmapexec-logo.svg" alt="CrackMapExec Logo">
+        </div>
+        <div class="logo-box">
+            <img src="../../ALL IMAGES/LOGO/maltego-logo.svg" alt="Maltego Logo">
+        </div>
+        <div class="logo-box">
+            <img src="../../ALL IMAGES/LOGO/aircrack-ng-logo.svg" alt="Aircrack-ng Logo">
+        </div>
+        <div class="logo-box">
+            <img src="../../ALL IMAGES/LOGO/ffuf-logo.svg" alt="FFUF Logo">
         </div>
     </div>
 
@@ -601,19 +596,19 @@
 
     <div class="logo-container">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\Linux.png" alt="Linux Logo">
+            <img src="../../ALL IMAGES/LOGO/Linux.png" alt="Linux Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\Windows 8.png" alt="Windows Logo">
+            <img src="../../ALL IMAGES/LOGO/Windows 8.png" alt="Windows Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\Debian.png" alt="Debian Logo">
+            <img src="../../ALL IMAGES/LOGO/Debian.png" alt="Debian Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\icons8-bash-48.png" alt="Bash Logo">
+            <img src="../../ALL IMAGES/LOGO/icons8-bash-48.png" alt="Bash Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\MySQL.png" alt="MySQL Logo">
+            <img src="../../ALL IMAGES/LOGO/MySQL.png" alt="MySQL Logo">
         </div>
     </div>
 
@@ -625,37 +620,37 @@
 
     <div class="logo-containers">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\AWS.png" alt="AWS Logo">
+            <img src="../../ALL IMAGES/LOGO/AWS.png" alt="AWS Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\pngaaa.com-6931009.png" alt="Logo">
+            <img src="../../ALL IMAGES/LOGO/pngaaa.com-6931009.png" alt="Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\netcat-logo.svg" alt="Netcat Logo">
+            <img src="../../ALL IMAGES/LOGO/netcat-logo.svg" alt="Netcat Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\pngwing.com.png" alt="Logo">
+            <img src="../../ALL IMAGES/LOGO/pngwing.com.png" alt="Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\what-is-iso.png" alt="ISO Logo">
+            <img src="../../ALL IMAGES/LOGO/what-is-iso.png" alt="ISO Logo">
         </div>
     </div>
 
     <div class="logo-containers">
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\Powershell.png" alt="PowerShell Logo">
+            <img src="../../ALL IMAGES/LOGO/Powershell.png" alt="PowerShell Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\mitre_attack_logo.png" alt="MITRE ATT&CK Logo">
+            <img src="../../ALL IMAGES/LOGO/mitre_attack_logo.png" alt="MITRE ATT&CK Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\edb-logo.png" alt="Exploit-DB Logo">
+            <img src="../../ALL IMAGES/LOGO/edb-logo.png" alt="Exploit-DB Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\tenable-computer-security-network-security-nessus-computer-network-international-sepaktakraw-federation.jpg" alt="Tenable Logo">
+            <img src="../../ALL IMAGES/LOGO/tenable-computer-security-network-security-nessus-computer-network-international-sepaktakraw-federation.jpg" alt="Tenable Logo">
         </div>
         <div class="logo-box">
-            <img src="E:\bby prot\cvber portofolio\ALL IMAGES\LOGO\tor-logo@2x.png" alt="Tor Logo">
+            <img src="../../ALL IMAGES/LOGO/tor-logo@2x.png" alt="Tor Logo">
         </div>
     </div>
     <footer class="site-footer">

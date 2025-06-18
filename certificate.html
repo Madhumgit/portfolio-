@@ -62,21 +62,21 @@ min-height: 100vh;
             padding: 0.75rem;
             border-radius: 8px;
             border: 1px solid #00c8ff;
-            background: rgba(0, 255, 204, 0.1);
-            color: #f6f7f8;
+ background: gray;
+             color: #f6f7f8;
             width: 250px;
             outline: none;
         }
         .filter-button {
             padding: 0.5rem 1.5rem;
-            background: rgba(0, 255, 204, 0.2);
+            background: gray;
             color: #e9f3f5;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s ease, box-shadow 0.3s ease;
         }
         .filter-button.active, .filter-button:hover {
-            background: #00d9ff;
+            background: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
             color: #0d0d0d;
             box-shadow: 0 0 15px #00d9ff;
         }
@@ -195,7 +195,7 @@ min-height: 100vh;
             position: fixed;
             top: 90px;
             right: 20px;
-            background: rgba(0, 255, 204, 0.2);
+            background: gray;
             border-radius: 8px;
             padding: 0.5rem 1rem;
             color: #e8f5f8;
@@ -204,14 +204,14 @@ min-height: 100vh;
         .progress-bar {
             width: 100px;
             height: 6px;
-            background: rgba(0, 255, 204, 0.3);
-            border-radius: 3px;
+ background: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
+             border-radius: 3px;
             margin-top: 0.5rem;
         }
         .progress-fill {
             height: 100%;
-            background: #00d5ff;
-            border-radius: 3px;
+ background: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
+             border-radius: 3px;
             transition: width 0.3s ease;
         }
         @keyframes cardFadeIn {
@@ -318,10 +318,12 @@ min-height: 100vh;
               transform: scale(1.05); /* Slight zoom effect */
           }
           .site-footer {
+             background-color: #041c23;
             color: #cdd1d5;
             padding: 40px 20px;
             font-family: 'Arial', sans-serif;
-            width: 100%;
+            width: 1300px;
+            margin-left: -50px;
             margin-top: 40px;
         }
         
@@ -423,13 +425,13 @@ min-height: 100vh;
             <a href="Skills.html">Skills</a>
         </button>
         <button class="quote-bt">
-            <a href="project.html">Experience</a>
+            <a href="project.html">Projects</a>
         </button>
         <button class="quote-bt">
             <a href="experiment.html">Certificate</a>
         </button>
         <button class="quote-bt">
-            <a href="certificate.html">projects</a>
+            <a href="certificate.html">Bugbountry</a>
         </button>
         <button class="quote-bt">
             <a href="resume.html">resume</a>
@@ -438,7 +440,7 @@ min-height: 100vh;
     </nav>
     
     <section class="exploit-section">
-        <h2 class="section-title">My Exploits</h2>
+        <h2 class="section-title">My bug reports</h2>
         <div class="filter-container">
             <input type="text" class="search-bar" id="search-bar" placeholder="Search exploits...">
             <button class="filter-button active" data-filter="all">All</button>

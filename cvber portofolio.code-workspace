@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "cvber portofolio",
+			"path": "."
+		},
+		{
+			"name": "HALL OF FAME",
+			"path": "../husband/ALL IMAGES/HALL OF FAME"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cvber portofolio"
+	}
+}
