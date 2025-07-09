@@ -339,8 +339,8 @@ z-index: 0;
       
      
         .profile-container {
-      width: 250px;
-      height: 250px;
+      width: 290px;
+      height: 290px;
       border-radius: 50%;
       padding: 5px;
       background: linear-gradient(45deg, #00f2fe, #4facfe, #f77062, #fe5196);
@@ -349,11 +349,12 @@ z-index: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: -60px;
     }
 
     .profile-container img {
-      width: 240px;
-      height: 240px;
+      width: 340px;
+      height: 300px;
       border-radius: 50%;
       border: 5px solid #0c0c1e;
       object-fit: cover;
@@ -370,18 +371,19 @@ z-index: 0;
         height: 3px;
         background-color: rgb(63, 154, 185);
         margin: 5px auto;
+        margin-left: 70px;
       }
       .role{
         margin-top: 20px;
-        margin-left: 60px;
+        margin-left: 30px;
       }
       .name{
         margin-top: 20px;
-        margin-left: 80px;
+        margin-left: 50px;
       }
       .soc-icons {
         margin-top: 15px;
-        margin-left: 40px;
+        margin-left: 10px;
       }
       
       .soc-icons i {
@@ -389,6 +391,7 @@ z-index: 0;
         margin: 0 10px;
         cursor: pointer;
       }
+      
 
 
 .text-menu {
@@ -437,6 +440,7 @@ z-index: 0;
         justify-content: space-around;
         width: 90%;
         margin: 50px auto;
+        margin-top: -170px;
        
     }
     .stat {
@@ -800,6 +804,7 @@ z-index: 0;
       align-items: center;
       justify-content: space-between;
       padding: 80px 100px;
+      margin-top: 80px;
     }
 
     .about-content {
