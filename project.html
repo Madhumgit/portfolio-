@@ -1,432 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <title>Portfolio Timeline</title>
-    <style>
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -2;
-          }
-          
-          /* Particle canvas from tsParticles */
-          #tsparticles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-          }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: black;
-            
-        }
-      
-        .navbar {
-            position: fixed;
-            top: 0px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 1100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        color: white;
-            background: rgba(255, 255, 255, 0.05);  /* Very light transparent white */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(80px);           /* Glass blur */
-            -webkit-backdrop-filter: blur(10px);   /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            z-index: 999;
-            transition: all 0.4s ease-in-out;
-        }
-        
-          
-          /* Default Navbar Links */
-          .quote-bt {
-              display: flex;
-              gap: 40px; /* Default space between items */
-              transition: gap 0.4s ease-in-out;
-              margin-top: 10px;
-              background-color: transparent;
-            border-color: transparent;
-              color: white;
-          }
-         
-          
-          .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.4s ease-in-out;
-          }
-          
-          .navbar a:hover {
-            color: #2ca2bf;
-            border-color: white;
-            box-shadow: white; /* or any cool hover color you like */
-          }
-          
-      
-      
-      
-          .quote-btn {
-              padding: 10px 20px;
-              background: rgba(255, 255, 255, 0.3); /* Transparent white */
-              color: white;
-              border-radius: 20px;
-              border: none;
-              margin-top: 10px;
-              cursor: pointer;
-              backdrop-filter: blur(5px); /* Initial slight blur */
-              transition: all 0.3s ease-in-out;
-          }
-          
-          .quote-btn:hover {
-              background: rgba(255, 255, 255, 0.5); /* Lighter blur effect */
-              backdrop-filter: blur(10px); /* Stronger blur */
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
-              transform: scale(1.05); /* Slight zoom effect */
-          }
-          .site-footer {
-              background-color: #041c23;
-            color: #cdd1d5;
-            padding: 40px 20px;
-            font-family: 'Arial', sans-serif;
-            width: 1230px;
-            margin-top: 40px;
-          margin-left: -30px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-        }
-        
-        .footer-section {
-            flex: 1 1 200px;
-            margin: 20px;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.2em;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-section ul li a {
-            color: #cdd1d5;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-section.about .logo {
-            font-size: 30px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            margin-top: 40px;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        
-        .footer-links {
-            margin: 10px 0;
-        }
-        
-        .footer-links a {
-            color: #cdd1d5;
-            margin: 0 5px;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .social-icons {
-            margin-top: 10px;
-        }
-        
-        .social-icons a img {
-            width: 32px;
-            height: 32px;
-            margin: 0 5px;
-            border-radius: 50%;
-            background-color: #5e3dd4;
-            padding: 6px;
-        }
-          
-        
-        .timeline-container {
-            width: 100%;
-            max-width: 1000px;
-            position: relative;
-            padding: 40px 0;
-            margin-left: 90px;
-           
-        }
-        .timeline {
-            position: relative;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: transparent;
-            border: 2px dashed #00e1ff;
-            z-index: 1;
-            animation: dashFlow 5s linear infinite;
-            transition: box-shadow 0.3s ease; /* Smooth transition for glow */
-        }
-        .timeline.glow::before {
-            box-shadow: 0 0 20px 5px #00e1ff, 0 0 40px 10px rgba(0, 225, 255, 0.5); /* Glow effect */
-            border-image: linear-gradient(to bottom, transparent 50%, transparent 50%) 1; /* Make dashes transparent */
-            animation: none; /* Stop dash animation during glow */
-        }
-        @keyframes dashFlow {
-            0% {
-                border-image: linear-gradient(to bottom, #00e1ff 50%, transparent 50%) 1;
-            }
-            100% {
-                border-image: linear-gradient(to bottom, transparent 50%, #00e1ff 50%) 1;
-            }
-        }
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin: 40px 0;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-            transform: translateX(-50px);
-        }
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-            transform: translateX(50px);
-        }
-        .timeline-item .dot {
-            width: 20px;
-            height: 20px;
-            background: #00b7eb;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            border: 3px solid #fff;
-            animation: pulse 2s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 183, 235, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 0 10px rgba(0, 183, 235, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 183, 235, 0);
-            }
-        }
-        .timeline-card {
-           background-color: #041c23;
-            color: #fffefe;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 45%;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer; /* Indicate the card is clickable */
-        }
-        .timeline-item:nth-child(odd) .timeline-card {
-            margin-right: auto;
-        }
-        .timeline-item:nth-child(even) .timeline-card {
-            margin-left: auto;
-        }
-        .timeline-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 183, 235, 0.5);
-        }
-        .timeline-card h3 {
-            margin: 0 0 10px;
-            color: #00b7eb;
-        }
-        .timeline-card p {
-            margin: 0 0 10px;
-            font-size: 14px;
-        }
-        .timeline-card .acknowledgement {
-            background: #151515;
-            padding: 10px;
-            color: white;
-            border-radius: 5px;
-            font-size: 12px;
-            margin-top: 10px;
-        }
-        .spacer {
-            flex: 1;
-        }
-  
-        
-    </style>
+  <meta charset="UTF-8">
+  <title>Vettrivel Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <div class="background"></div>
-
-  
-
+  <div id="header"></div>
+ <div class="background"></div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script src="particles-config.js"></script>
-    
-    <nav class="navbar" id="navbar">
-        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
-        <button class="quote-bt">
-            <a href="index.html">Home</a>
-        </button>
-        <button class="quote-bt">
-            <a href="hallofframe.html">Hall of Frame</a>
-        </button>
-        <button class="quote-bt">
-            <a href="Skills.html">Skills</a>
-        </button>
-        <button class="quote-bt">
-            <a href="project.html">Projects</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certify.html">Certificate</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certificate.html">Bugboundry</a>
-        </button>
-        <button class="quote-bt">
-            <a href="resume.html">resume</a>
-        </button>
-        <button class="quote-btn" id="con">Contact me</button>
-    </nav>
-    
 
-    <div class="timeline-container">
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-card">
-                    <h3>Craftathon 2018</h3>
-                    <p>During Christmas, I helped with Craftathon 2018! This time we were able to raise $1,744. Like in 2017, I mainly worked as a backend developer.</p>
-                    <div class="acknowledgement">
-                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/amit.png" alt="Craftathon 2018" style="width: 500px; height: 200px; vertical-align: middle;">
-                        <strong>Acknowledgement of Completed VAPT for LLM Chatbot Project</strong><br>
-                        <em>From: John Doe, john.doe@example.com</em><br>
-                        Dear Mr. Watson,<br>
-                        I hope you are doing well.<br>
-                        This is to acknowledge the successful completion of the Vulnerability Assessment and Penetration Testing (VAPT) for the LLM-based Chatbot Project. Your team has once again shown exemplary skills and dedication.<br>
-                        Best regards,<br>
-                        John Doe
-                    </div>
-                </div>
-                <div class="dot"></div>
-                <div class="spacer"></div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-card">
-                    <h3>Triton Web Interface</h3>
-                    <p>My first consumer-facing React app in the v1.0.0 update for Triton. I used Piggott premium plugin, I've introduced the TW3 Web Interface to configure the plugin. It was my first React and other new-technology web app.</p>
-                    <div class="acknowledgement">
-              <img src="../../ALL IMAGES/ACKNOWLEGEMENT/bug.png" alt="Craftathon 2018" style="width: 500px; height: 200px; vertical-align: middle;">
+   
+    <section class="exploit-section">
+        <h2 class="section-title">My bug reports</h2>
+        <div class="filter-container">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="Web App">Web App</button>
+            <button class="filter-button" data-filter="E-commerce">E-commerce</button>
+            <button class="filter-button" data-filter="Forum">Forum</button>
+        </div>
+        <div class="exploit-grid" id="exploit-container"></div>
+    </section>
 
-                        <strong>Confirmation of Completion - Penetration Testing for Retail & Education Platforms</strong>
-                    </div>
-                </div>
-                <div class="dot"></div>
-                <div class="spacer"></div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-card">
-                    <h3>Project Nebula 2019</h3>
-                    <p>Led the development of Project Nebula, a cloud-based web application for real-time data visualization. Focused on optimizing the backend with Node.js and integrating WebSocket for live updates.</p>
-                    <div class="acknowledgement">
-                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/NCIIPC.png" alt="Project Nebula 2019" style="width: 500px; height: 200px; vertical-align: middle;">
-                        <strong>Certificate of Excellence - Best Innovative Project 2019</strong>
-                    </div>
-                </div>
-                <div class="dot"></div>
-                <div class="spacer"></div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-card">
-                    <h3>CyberSec Certification 2020</h3>
-                    <p>Completed the Certified Ethical Hacker (CEH) certification, enhancing my skills in cybersecurity. Applied knowledge to secure web applications and conduct penetration testing.</p>
-                    <div class="acknowledgement">
-                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/crak.png" alt="CyberSec Certification 2020" style="width: 500px; height: 200px; vertical-align: middle;">
-                        <strong>Certified Ethical Hacker (CEH) - EC-Council</strong>
-                    </div>
-                </div>
-                <div class="dot"></div>
-                <div class="spacer"></div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-card">
-                    <h3>AI Summit 2021</h3>
-                    <p>Presented a talk on "AI-Powered Web Interfaces" at the Global AI Summit 2021. Shared insights on integrating machine learning models with React for enhanced user experiences.</p>
-                    <div class="acknowledgement">
-                        <img src="../../ALL IMAGES/ACKNOWLEGEMENT/5000.png" alt="AI Summit 2021" style="width: 500px; height: 200px; vertical-align: middle;">
-                        <strong>Speaker Recognition - Global AI Summit 2021</strong>
-                    </div>
-                </div>
-                <div class="dot"></div>
-                <div class="spacer"></div>
-            </div>
+    <div class="progress-container">
+        <div>Exploits Viewed: <span id="progress-count">0/33</span></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
         </div>
     </div>
 
+    <div class="modal" id="exploit-modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">×</span>
+            <img class="modal-image" id="modal-image" src="" alt="Exploit">
+            <h3 class="text-xl font-semibold text-00ffcc mt-4" id="modal-title"></h3>
+            <p class="text-66ccff mt-1" id="modal-date"></p>
+        </div>
+    </div>
+  
+
+    <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+              number: {
+                value: 40,
+              },
+              size: {
+                value: 2,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+              },
+              color: {
+                value: "#ffffff"
+              },
+              line_linked: {
+                enable: true,
+                color: "#ffffff",
+                opacity: 0.1
+              }
+            },
+            interactivity: {
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                }
+              }
+            },
+            background: {
+              color: "transparent"
+            }
+          });
+        // Exploit data (33 entries)
+        const exploits = [
+            { title: "Forum Exploit #33", platform: "Forum", date: "Sep 2025", image: "ALL IMAGES/VULNS/HTTP-REQUEST-SMUGGLE.png" },
+            { title: "E-commerce Breach #2", platform: "E-commerce", date: "Feb 2023", image: "ALL IMAGES/VULNS/Screenshot 2024-08-29 133524.png" },
+            { title: "Forum Exploit #3", platform: "Forum", date: "Mar 2023", image: "ALL IMAGES/VULNS/Screenshot 2025-01-31 132751.png" },
+            { title: "Web App Hack #4", platform: "Web App", date: "Apr 2023", image: "ALL IMAGES/VULNS/Screenshot 2025-02-08 090824.png" },
+            { title: "E-commerce Breach #5", platform: "E-commerce", date: "May 2023", image: "ALL IMAGES/VULNS/Session-Fixation-popup (1).png" },
+            { title: "Web App Hack #7", platform: "Web App", date: "Jul 2023", image: "ALL IMAGES/VULNS/Screenshot 2025-04-11 200228.png" },
+            { title: "Web App Hack #22", platform: "Web App", date: "Oct 2024", image: "ALL IMAGES/VULNS/lfi.png" },
+            { title: "Web App Hack #1", platform: "Web App", date: "Jan 2023", image: " ALL IMAGES/VULNS/Screenshot 2025-01-25 141646.png" },
+            { title: "Forum Exploit #24", platform: "Forum", date: "Dec 2024", image: "ALL IMAGES/VULNS/val1.png" },
+
+
+            ];
+
+        // State
+        let displayedExploits = [];
+        let currentFilter = 'all';
+        let currentSearch = '';
+        const exploitsPerLoad = 9;
+        let loadedCount = 0;
+
+        // DOM elements
+        const container = document.getElementById('exploit-container');
+        const searchBar = document.getElementById('search-bar');
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const progressCount = document.getElementById('progress-count');
+        const progressFill = document.getElementById('progress-fill');
+
+        // Render exploits
+        function renderExploits(startIndex, count) {
+            const filteredExploits = exploits.filter(exploit => {
+                const matchesFilter = currentFilter === 'all' || exploit.platform === currentFilter;
+                const matchesSearch = exploit.title.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            const endIndex = Math.min(startIndex + count, filteredExploits.length);
+            for (let i = startIndex; i < endIndex; i++) {
+                const exploit = filteredExploits[i];
+                const index = exploits.indexOf(exploit);
+                const card = document.createElement('div');
+                card.className = 'exploit-card';
+                card.innerHTML = `
+                    <div class="exploit-card-inner">
+                        <div class="exploit-card-front">
+                            <img src="${exploit.image}" alt="${exploit.title}" class="exploit-image" data-index="${index}">
+                        </div>
+                        <div class="exploit-card-back">
+                            <h3 class="exploit-title">${exploit.title}</h3>
+                            <p class="exploit-date">Date: ${exploit.date}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                displayedExploits.push(card);
+            }
+            loadedCount = endIndex;
+            updateProgress();
+            observeCards();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const viewedCount = displayedExploits.filter(card => card.classList.contains('visible')).length;
+            const total = exploits.length;
+            progressCount.textContent = `${viewedCount}/${total}`;
+            progressFill.style.width = `${(viewedCount / total) * 100}%`;
+        }
+
+        // Intersection Observer for animation
+        function observeCards() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        updateProgress();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            displayedExploits.forEach(card => observer.observe(card));
+        }
+
+        // Infinite scroll
+        function handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                renderExploits(loadedCount, exploitsPerLoad);
+            }
+        }
+
+        // Filter and search
+        function applyFilter(filter) {
+            currentFilter = filter;
+            container.innerHTML = '';
+            displayedExploits = [];
+            loadedCount = 0;
+            filterButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            renderExploits(0, exploitsPerLoad);
+        }
+
+        function handleSearch() {
+            currentSearch = searchBar.value;
+            container.innerHTML = '';
+            displayedExploits = [];
+            loadedCount = 0;
+            renderExploits(0, exploitsPerLoad);
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('exploit-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDate = document.getElementById('modal-date');
+        const closeModal = document.getElementById('close-modal');
+
+        function openModal(index) {
+            const exploit = exploits[index];
+            modalImage.src = exploit.image;
+            modalTitle.textContent = exploit.title;
+            modalDate.textContent = `Date: ${exploit.date}`;
+            modal.style.display = 'flex';
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', handleScroll);
+        searchBar.addEventListener('input', handleSearch);
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+        });
+
+        container.addEventListener('click', (e) => {
+            if (e.target.classList.contains('exploit-image')) {
+                const index = e.target.dataset.index;
+                openModal(index);
+            }
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalImage.classList.remove('zoomed');
+        });
+
+        modalImage.addEventListener('click', () => {
+            modalImage.classList.toggle('zoomed');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImage.classList.remove('zoomed');
+            }
+        });
+
+        // Initial render
+        renderExploits(0, exploitsPerLoad);
+    </script>
  
 
-    <footer class="site-footer">
+   <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section about">
                 <div class="logo">⟪⟫</div>
@@ -468,108 +281,333 @@
                 <a href="#">Privacy Policy</a> |
                 <a href="#">Terms of Service</a> |
                 <a href="#">Cookie Policy</a>
-            </div>
            
+            
+        </div>
         </div>
     </footer>
     
 
-    <script>
-        tsParticles.load("tsparticles", {
-            particles: {
-              number: {
-                value: 40,
-              },
-              size: {
-                value: 2,
-              },
-              move: {
-                enable: true,
-                speed: 1,
-              },
-              color: {
-                value: "#ffffff"
-              },
-              line_linked: {
-                enable: true,
-                color: "#ffffff",
-                opacity: 0.1
-              }
-            },
-            interactivity: {
-              events: {
-                onhover: {
-                  enable: true,
-                  mode: "grab"
-                }
-              }
-            },
-            background: {
-              color: "transparent"
-            }
-          });
-        // Function to check if an element is in viewport
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-            );
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+  <style>
+     .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+          }
+          
+          /* Particle canvas from tsParticles */
+          #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+background-color: black;            
+min-height: 100vh;
+height: 0px;
+            padding: 3rem;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            color: white;
         }
+        .exploit-section {
+           
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .section-title {
+            margin-top: 100px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f6fafb;
+            text-shadow: 0 0 10px #f1f6f7;
+            margin-bottom: 1rem;
+            animation: glitch 1.5s infinite;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+       
+        .filter-button {
+            padding: 0.5rem 1.5rem;
+background-color: #041c23;
+          color: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
 
-        // Add scroll event listener to apply fade-up effect
-        window.addEventListener('scroll', () => {
-            const containers = document.querySelectorAll('.container');
-            containers.forEach(container => {
-                if (isInViewport(container)) {
-                    container.classList.add('visible');
-                }
-            });
-        });
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .filter-button.active, .filter-button:hover {
+          background-color: #041c23;
+          color: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
 
-        // Initial check on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const containers = document.querySelectorAll('.container');
-            containers.forEach(container => {
-                if (isInViewport(container)) {
-                    container.classList.add('visible');
-                }
-            });
-        });
-        const timeline = document.querySelector('.timeline');
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const cards = document.querySelectorAll('.timeline-card');
-
-        // Scroll visibility check for fade-in animation
-        const checkVisibility = () => {
-            const triggerBottom = window.innerHeight * 0.8;
-            timelineItems.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                if (itemTop < triggerBottom) {
-                    item.classList.add('visible');
-                }
-            });
-        };
-
-        // Add click/touch event to cards
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Remove glow class from timeline to reset any previous animation
-                timeline.classList.remove('glow');
-                // Trigger glow effect by adding the class
-                timeline.classList.add('glow');
-            });
-
-            // Support touch devices
-            card.addEventListener('touchstart', () => {
-                timeline.classList.remove('glow');
-                timeline.classList.add('glow');
-            });
-        });
-
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('load', checkVisibility);
-    
-    </script>
+            box-shadow: 0 0 15px #00d9ff;
+        }
+        .exploit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .exploit-card {
+            perspective: 1000px;
+            height: 300px;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .exploit-card.visible {
+            animation: cardFadeIn 0.8s ease forwards;
+        }
+        .exploit-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+background-color: #041c23;
+        }
+        .exploit-card:hover .exploit-card-inner {
+            transform: rotateY(180deg);
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+        }
+        .exploit-card-front, .exploit-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .exploit-card-front {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid #00ddff;
+        }
+        .exploit-card-back {
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid #00e5ff;
+            transform: rotateY(180deg);
+            text-align: center;
+            padding: 1rem;
+        }
+        .exploit-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .exploit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #effafd;
+            text-shadow: 0 0 5px #00a2ff;
+            margin-bottom: 0.5rem;
+        }
+        .exploit-date {
+            font-size: 0.9rem;
+            color: #dfeaef;
+        }
+        .modal {
+            
+            display: none;
+            position: fixed;
+          
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            
+            background: #0d0d0d;
+            border: 1px solid #00b7ff;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.5s ease;
+        }
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: zoom-in;
+            border: 1px solid #00b3ff;
+        }
+        .modal-image.zoomed {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #eef3f6;
+            cursor: pointer;
+        }
+        .progress-container {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+background-color: #041c23;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: #e8f5f8;
+            font-size: 0.9rem;
+        }
+        .progress-bar {
+            width: 100px;
+            height: 6px;
+ background: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
+             border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+        .progress-fill {
+            height: 100%;
+ background: linear-gradient(90deg, #b8d0f7, #043140, #b8d0f7, #042939);
+ 
+             border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        @keyframes modalFadeIn {
+            0% { opacity: 0; transform: scale(0.7); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            .exploit-grid {
+                grid-template-columns: 1fr;
+            }
+            .exploit-card {
+                height: 250px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .modal-content {
+                padding: 1.5rem;
+            }
+            .progress-container {
+                top: 10px;
+                right: 10px;
+            }
+        }
+        .site-footer {
+    background-color: #041c23;
+      color: #cdd1d5;
+      padding: 40px 20px;
+      font-family: 'Arial', sans-serif;
+      margin-top: 260px;
+      width: 1400px;
+      margin-left: -90px;
+  }
+  
+  .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+  }
+  
+  .footer-section {
+      flex: 1 1 200px;
+      margin: 20px;
+  }
+  
+  .footer-section h4 {
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .footer-section ul li a {
+      color: #cdd1d5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  .footer-section ul li a:hover {
+      text-decoration: underline;
+  }
+  
+  .footer-section.about .logo {
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 10px;
+  }
+  
+  .footer-bottom {
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9em;
+  }
+  
+  .footer-links {
+      margin: 10px 0;
+  }
+  
+  .footer-links a {
+      color: #cdd1d5;
+      margin: 0 5px;
+      text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+      text-decoration: underline;
+  }
+       
+  </style>
 </body>
 </html>

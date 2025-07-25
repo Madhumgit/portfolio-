@@ -1,433 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Skills Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-       
-          
-          /* Particle canvas from tsParticles */
-          #tsparticles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-          }
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: rgb(0, 0, 0);
-            min-height: 100vh;
-          
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-           
-        }
-       .navbar {
-  position: fixed;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  color: white;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(80px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  z-index: 999;
-  /* transition: all 0.4s ease-in-out; */  /* Remove this line */
-}
-
-        
-          
-          /* Default Navbar Links */
-          .quote-bt {
-              display: flex;
-              gap: 40px; /* Default space between items */
-              transition: gap 0.4s ease-in-out;
-              margin-top: 10px;
-              background-color: transparent;
-            border-color: transparent;
-              color: white;
-          }
-         
-          
-          .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.4s ease-in-out;
-          }
-          
-          .navbar a:hover {
-            color: #2ca2bf;
-            border-color: white;
-            box-shadow: white; /* or any cool hover color you like */
-          }
-          
-      
-      
-      
-          .quote-btn {
-              padding: 10px 20px;
-              background: rgba(255, 255, 255, 0.3); /* Transparent white */
-              color: white;
-              border-radius: 20px;
-              border: none;
-              margin-top: 10px;
-              cursor: pointer;
-              backdrop-filter: blur(5px); /* Initial slight blur */
-              transition: all 0.3s ease-in-out;
-          }
-          
-          .quote-btn:hover {
-              background: rgba(255, 255, 255, 0.5); /* Lighter blur effect */
-              backdrop-filter: blur(10px); /* Stronger blur */
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
-              transform: scale(1.05); /* Slight zoom effect */
-          }
-
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            background-size: 400%;
-            animation: bgShift 15s ease infinite;
-            z-index: -1;
-            color: white;
-        }
-
-        @keyframes bgShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        #particles-js.fallback {
-            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-            background-size: 400%;
-            animation: bgShift 15s ease infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #particles-js.fallback::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, #00ddeb, #ff4d4d, #7a00ff);
-            box-shadow: 0 0 10px rgba(0, 221, 235, 0.8);
-            animation: scan 5s linear infinite, colorShift 3s ease infinite;
-        }
-
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
-        }
-
-        @keyframes colorShift {
-            0% { background: linear-gradient(to right, #00ddeb, #ff4d4d); }
-            50% { background: linear-gradient(to right, #ff4d4d, #7a00ff); }
-            100% { background: linear-gradient(to right, #7a00ff, #00ddeb); }
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 20px;
-            height: 300px;
-            width: 1200px;
-            position: relative;
-           
-            z-index: 1;
-        }
-
-        .card {
-             text-align: left;
-            background: rgba(0, 0, 0, 0.02);
-            border: 2px solid #fffbe6;
-            border-radius: 25px;
-            padding: 20px;
-            gap: 30px;
-            color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-      
-
-        .card:hover {
-            transform: translateY(-9px) scale(1.03);
-            border-color: #fffdfe;
-            box-shadow: 0 0 16px #2a9db4;
-        }
-
-        @media (max-width: 768px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .card-grid1 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 20px;
-            height: 300px;
-            width: 1200px;
-            margin-top: 140px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card1 {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid #fffbe6;
-            border-radius: 25px;
-            padding: 20px;
-            color: white;
-          
-            height: 450px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            text-align: left;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-       
-
-
-        .card1:hover {
-            transform: translateY(-9px) scale(1.03);
-            border-color: #fffdfe;
-            box-shadow: 0 0 16px #37a8c8;
-        }
-        .card1 p{
-            height: 80px;
-            text-align: left;
-            width: 230px;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .card-grid1 {
-                grid-template-columns: 1fr;
-            }
-        }
-      
-
-        .section-title1,
-        .section-title2,
-        .section-title3,
-        .section-title4 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title2 {
-            margin-top: 90px;
-        }
-
-        .section-title3,
-        .section-title4 {
-            margin-top: -50px;
-        }
-
-        .line,
-        .linet {
-            flex: 1;
-            height: 4px;
-            border: none;
-            background: linear-gradient(to right, #ff4d4d, #7a00ff);
-            border-radius: 2px;
-            margin-top: 90px;
-        }
-
-        .line {
-            margin-top: 160px;
-        }
-
-        .in,
-        .int {
-            color: white;
-            font-weight: bold;
-            font-size: 33px;
-            margin-top: 80px;
-            white-space: nowrap;
-            font-family: cursive;
-        }
-       
-
-        .in {
-            margin-top: 160px;
-        }
-
-        .img {
-            width: 240px;
-        }
-
-        .logo-container,
-        .logo-containers {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .logo-containers {
-            gap: 5px;
-        }
-
-        .logo-box:hover {
-            transition: transform 0.5s;
-            transform: scale(0.9);
-            cursor: grab;
-            box-shadow: 0 0 16px #09e2ed;
-        }
-
-        .logo-box {
-            width: 150px;
-            color: white;
-            height: 130px;
-            border: 2px solid #3696a0;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            box-shadow: 0 0 15px #4798b1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 50px;
-            margin-top: 20px;
-        }
-
-        .logo-box img {
-            width: 60px;
-            height: auto;
-        }
-
-        .ar {
-            margin-top: 30px;
-        }
-
-        button {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .site-footer {
-              background-color: #041c23;
-            color: #cdd1d5;
-            padding: 40px 20px;
-            font-family: 'Arial', sans-serif;
-            width: 100%;
-            margin-top: 90px;
-           
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-            margin-left: 40px;
-        }
-        
-        .footer-section {
-            flex: 1 1 200px;
-            margin: 20px;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.2em;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-section ul li a {
-            color: #cdd1d5;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-section.about .logo {
-            font-size: 30px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            margin-top: 40px;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        
-        .footer-links {
-            margin: 10px 0;
-        }
-        
-        .footer-links a {
-            color: #cdd1d5;
-            margin: 0 5px;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .social-icons {
-            margin-top: 10px;
-        }
-        
-        .social-icons a img {
-            width: 32px;
-            height: 32px;
-            margin: 0 5px;
-            border-radius: 50%;
-            background-color: #5e3dd4;
-            padding: 6px;
-        }
-        
-    </style>
+  <meta charset="UTF-8">
+  <title>Vettrivel | Page 2</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    
-    <div class="background"></div>
+  <div id="header"></div>
+
+   <div class="background"></div>
 
   
 
@@ -436,31 +18,7 @@
 
     <!-- Header Section -->
   
-    <nav class="navbar" id="navbar">
-        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
-        <button class="quote-bt">
-            <a href="index.html">Home</a>
-        </button>
-        <button class="quote-bt">
-            <a href="hallofframe.html">Hall of Frame</a>
-        </button>
-        <button class="quote-bt">
-            <a href="Skills.html">Skills</a>
-        </button>
-        <button class="quote-bt">
-            <a href="project.html">Projects</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certify.html">Certificate</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certificate.html">Bugbountry</a>
-        </button>
-        <button class="quote-bt">
-            <a href="resume.html">Resume</a>
-        </button>
-        <button class="quote-btn" id="con">Contact me</button>
-    </nav>
+   
     <!-- Particle Background -->
     <div id="particles-js"></div>
 
@@ -474,48 +32,38 @@
         <div class="card">
             <img class="img" src="../../Images/VAPT.png" alt="">
             
-            <p>• Vulnerability Assessment & Penetration Testing (VAPT)</p>
+            <p> Vulnerability Assessment & Penetration Testing (VAPT)</p>
         </div>
         <div class="card">
             <img class="img" src="../../Images/part4.png" alt="">
             
-            <p>• Expertise in Web, Network, API, and LLM AI security, with hands-on experience addressing OWASP Top vulnerabilities</p>
+            <p> Expertise in Web, Network, API, and LLM AI security, with hands-on experience addressing OWASP Top vulnerabilities</p>
         </div>
         <div class="card">
             <img class="img" src="../../Images/part5.png" alt="">
             
             <p>This is the third card.</p>
         </div>
-        <div class="card">
-            <img class="img" src="../../Images/part6.png" alt="">
-            <h3>• Red Team Engagements & Threat Emulation</h3>
-            <p>This is the third card.</p>
-        </div>
+      
     </div>
 
     <div class="card-grid1">
         <div class="card1">
             <img class="img" src="../../Images/Sca.png" alt="">
-            <h3>• Bug Bounty Hunting - Web, API, Network.<br>• Skilled in Static/Dynamic Application Security Testing (SAST/DAST)</h3>
+            <h3> Bug Bounty Hunting - Web, API, Network.<br>• Skilled in Static/Dynamic Application Security Testing (SAST/DAST)</h3>
             <p>This is the first card.</p>
         </div>
         <div class="card1">
             <img class="img" src="../../Images/part2.png" alt="">
-            <h3>• Network Exploitation & Lateral Movement</h3>
+            <h3> Network Exploitation & Lateral Movement</h3>
             <p>This is the second card.</p>
         </div>
-        <div class="card1">
-            <img class="img" src="../../Images/bug.png" alt="">
-            <h3>• DDoS-Wave</h3>
-            <p>Is a powerful and customizable network stress-testing tool crafted for cybersecurity enthusiasts, professionals, and learners. Simulate a flood of TCP packets with randomized spoofed IPs to test the resilience of systems in controlled environments.</p>
-
+          <div class="card1">
+            <img class="img" src="../../Images/part6.png" alt="">
+            <h3> Red Team Engagements & Threat Emulation</h3>
+            <p>This is the third card.</p>
         </div>
-        <div class="card1">
-            <img class="img" src="../../Images/part3.png" alt="">
-            <h3>RepoVulnScan</h3>
-            <p>RepoVulnScan is a security tool designed to scan GitHub repositories for known vulnerabilities in dependency files. The tool supports various ecosystems like npm, PyPI, Go, Maven, Gradle, crates.io and more.</p>
-            
-        </div>
+      
     </div>
 
     <div class="section-title2">
@@ -661,52 +209,7 @@
             <img src="../../ALL IMAGES/LOGO/tor-logo@2x.png" alt="Tor Logo">
         </div>
     </div>
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <div class="logo">⟪⟫</div>
-                <p>Unlocking Confidence in Every Byte,<br>
-                   Connect with us for a fortress of data security.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">eBooks</a></li>
-                    <li><a href="#">Glossary</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Research</h4>
-                <ul>
-                    <li><a href="#">Leaderboards</a></li>
-                    <li><a href="#">Synthetic Datasets</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                    <li><a href="#">Patents</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Philosophy</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Abluva. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Legal</a> |
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms of Service</a> |
-                <a href="#">Cookie Policy</a>
-            </div>
-           
-        </div>
-    </footer>
+   
     
 
     <!-- Particles.js Library -->
@@ -768,5 +271,277 @@
             }
           });
     </script>
+
+  <div id="footer"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+  <style>
+       #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+          }
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(0, 0, 0);
+            min-height: 100vh;
+          
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+           
+        }
+      
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            background-size: 400%;
+            animation: bgShift 15s ease infinite;
+            z-index: -1;
+            color: white;
+        }
+
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #particles-js.fallback {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            background-size: 400%;
+            animation: bgShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #particles-js.fallback::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #00ddeb, #ff4d4d, #7a00ff);
+            box-shadow: 0 0 10px rgba(0, 221, 235, 0.8);
+            animation: scan 5s linear infinite, colorShift 3s ease infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        @keyframes colorShift {
+            0% { background: linear-gradient(to right, #00ddeb, #ff4d4d); }
+            50% { background: linear-gradient(to right, #ff4d4d, #7a00ff); }
+            100% { background: linear-gradient(to right, #7a00ff, #00ddeb); }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 20px;
+            height: 300px;
+            width: 1200px;
+            position: relative;
+           
+            z-index: 1;
+        }
+
+        .card {
+             text-align: left;
+            background: rgba(0, 0, 0, 0.02);
+            border: 2px solid #fffbe6;
+            border-radius: 25px;
+            padding: 20px;
+            gap: 30px;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+      
+
+        .card:hover {
+            transform: translateY(-9px) scale(1.03);
+            border-color: #fffdfe;
+            box-shadow: 0 0 16px #2a9db4;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card-grid1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 45px;
+            padding: 20px;
+            height: 200px;
+            width: 1200px;
+            margin-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card1 {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #fffbe6;
+            border-radius: 25px;
+            padding: 20px;
+            color: white;
+            width: 400px;
+            height: 350px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+       
+
+
+        .card1:hover {
+            transform: translateY(-9px) scale(1.03);
+            border-color: #fffdfe;
+            box-shadow: 0 0 16px #37a8c8;
+        }
+        .card1 p{
+            height: 80px;
+            text-align: left;
+            width: 230px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid1 {
+                grid-template-columns: 1fr;
+            }
+        }
+      
+
+        .section-title1,
+        .section-title2,
+        .section-title3,
+        .section-title4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title2 {
+            margin-top: 90px;
+        }
+
+        .section-title3,
+        .section-title4 {
+            margin-top: -50px;
+        }
+
+        .line,
+        .linet {
+            flex: 1;
+            height: 4px;
+            border: none;
+            background: linear-gradient(to right, #ff4d4d, #7a00ff);
+            border-radius: 2px;
+            margin-top: 90px;
+        }
+
+        .line {
+            margin-top: 160px;
+        }
+
+        .in,
+        .int {
+            color: white;
+            font-weight: bold;
+            font-size: 33px;
+            margin-top: 80px;
+            white-space: nowrap;
+            font-family: cursive;
+        }
+       
+
+        .in {
+            margin-top: 160px;
+        }
+
+        .img {
+            width: 350px;
+            height: 200px;
+        }
+
+        .logo-container,
+        .logo-containers {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .logo-containers {
+            gap: 5px;
+        }
+
+        .logo-box:hover {
+            transition: transform 0.5s;
+            transform: scale(0.9);
+            cursor: grab;
+            box-shadow: 0 0 16px #09e2ed;
+        }
+
+        .logo-box {
+            width: 150px;
+            color: white;
+            height: 130px;
+            border: 2px solid #3696a0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 0 15px #4798b1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+
+        .logo-box img {
+            width: 60px;
+            height: auto;
+        }
+
+        .ar {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+  </style>
 </body>
 </html>

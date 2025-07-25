@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madhu's Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
+  <meta charset="UTF-8">
+  <title>Vettrivel Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+ <div class="background"></div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="particles-config.js"></script>
+   
+   <section class="resume-section">
+  <!-- Background Effect (like white dots or nebula) -->
+  <div class="nebula-cloud"></div>
+
+  <!-- Heading -->
+  <h1 class="matrix-text">My Resume</h1>
+
+ <div class="resume-container">
+  <img src="resum.png" alt="Resume" class="resume-img" />
+  <a href="resum.png" download="Resume.png" class="download-btn">Download Resume</a>
+</div>
+</section>
+
+   
+    
+</body>
+<script>
+    tsParticles.load("tsparticles", {
+        particles: {
+          number: {
+            value: 40,
+          },
+          size: {
+            value: 2,
+          },
+          move: {
+            enable: true,
+            speed: 1,
+          },
+          color: {
+            value: "#ffffff"
+          },
+          line_linked: {
+            enable: true,
+            color: "#ffffff",
+            opacity: 0.1
+          }
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab"
+            }
+          }
+        },
+        background: {
+          color: "transparent"
+        }
+      });
+</script>
+  <div id="footer"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+  <style>
+       * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        .navbar {
-            position: fixed;
-            top: 0px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 1100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            color: white;
-            background: rgba(255, 255, 255, 0.05);  /* Very light transparent white */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(80px);           /* Glass blur */
-            -webkit-backdrop-filter: blur(10px);   /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            z-index: 999;
-            transition: all 0.4s ease-in-out;
-        }
-        
-          
-          /* Default Navbar Links */
-          .quote-bt {
-              display: flex;
-              gap: 40px; /* Default space between items */
-              transition: gap 0.4s ease-in-out;
-              margin-top: 10px;
-              background-color: transparent;
-            border-color: transparent;
-              color: white;
-          }
-         
-          
-          .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.4s ease-in-out;
-          }
-          
-          .navbar a:hover {
-            color: #2ca2bf;
-            border-color: white;
-            box-shadow: white; /* or any cool hover color you like */
-          }
-          
-      
-      
-      
-          .quote-btn {
-              padding: 10px 20px;
-              background: rgba(255, 255, 255, 0.3); /* Transparent white */
-              color: white;
-              border-radius: 20px;
-              border: none;
-              margin-top: 10px;
-              cursor: pointer;
-              backdrop-filter: blur(5px); /* Initial slight blur */
-              transition: all 0.3s ease-in-out;
-          }
-          
-          .quote-btn:hover {
-              background: rgba(255, 255, 255, 0.5); /* Lighter blur effect */
-              backdrop-filter: blur(10px); /* Stronger blur */
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
-              transform: scale(1.05); /* Slight zoom effect */
-          }
+       
 
         body {
             min-height: 100vh;
@@ -105,6 +112,7 @@ background-color: black;
             text-align: center;
             background: transparent;
         }
+        
 
         .nebula-cloud {
             position: absolute;
@@ -158,8 +166,18 @@ background-color: black;
             100% { opacity: 1; transform: scale(1); filter: blur(0); text-shadow: 0 0 10px #4dc4ff; }
         }
 
+
+.resume-img {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(77, 211, 255, 0.2);
+  display: block;
+}
+
         .resume-container {
-            width: 80%;
+            width: 100%;
             max-width: 800px;
             opacity: 0;
             transform: scale(0.1) translateZ(-1000px);
@@ -168,6 +186,7 @@ background-color: black;
             border: 2px solid transparent;
             border-radius: 20px;
             padding: 1rem;
+            
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 20px rgba(77, 193, 255, 0.3);
@@ -191,10 +210,22 @@ background-color: black;
             pointer-events: none;
         }
 
-        .resume-container embed {
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(77, 211, 255, 0.2);
-        }
+       .resume-container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* optional background */
+  border-radius: 10px;
+}
+
+.resume-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
 
         .download-btn {
             display: inline-block;
@@ -240,90 +271,7 @@ background-color: black;
             }
         }
     
-    .site-footer {
-         background-color: #041c23;
-        color: #cdd1d5;
-        padding: 40px 20px;
-        font-family: 'Arial', sans-serif;
-        width: 100%;
-        margin-top: 40px;
-    }
-    
-    .footer-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: auto;
-    }
-    
-    .footer-section {
-        flex: 1 1 200px;
-        margin: 20px;
-    }
-    
-    .footer-section h4 {
-        font-size: 1.2em;
-        color: #fff;
-        margin-bottom: 10px;
-    }
-    
-    .footer-section ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-section ul li a {
-        color: #cdd1d5;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 5px;
-    }
-    
-    .footer-section ul li a:hover {
-        text-decoration: underline;
-    }
-    
-    .footer-section.about .logo {
-        font-size: 30px;
-        color: #fff;
-        margin-bottom: 10px;
-    }
-    
-    .footer-bottom {
-        border-top: 1px solid #333;
-        margin-top: 40px;
-        padding-top: 20px;
-        text-align: center;
-        font-size: 0.9em;
-    }
-    
-    .footer-links {
-        margin: 10px 0;
-    }
-    
-    .footer-links a {
-        color: #cdd1d5;
-        margin: 0 5px;
-        text-decoration: none;
-    }
-    
-    .footer-links a:hover {
-        text-decoration: underline;
-    }
-    
-    .social-icons {
-        margin-top: 10px;
-    }
-    
-    .social-icons a img {
-        width: 32px;
-        height: 32px;
-        margin: 0 5px;
-        border-radius: 50%;
-        background-color: #5e3dd4;
-        padding: 6px;
-    }
+   
     .background {
         position: absolute;
         top: 0;
@@ -343,133 +291,6 @@ background-color: black;
         z-index: -1;
       }
     
-    </style>
-</head>
-<body>
-    <div class="background"></div>
-
-  
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script src="particles-config.js"></script>
-    <nav class="navbar" id="navbar">
-        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
-        <button class="quote-bt">
-            <a href="index.html">Home</a>
-        </button>
-        <button class="quote-bt">
-            <a href="hallofframe.html">Hall of Frame</a>
-        </button>
-        <button class="quote-bt">
-            <a href="Skills.html">Skills</a>
-        </button>
-        <button class="quote-bt">
-            <a href="project.html">Projects</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certify.html">Certificate</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certificate.html">Bugbountry</a>
-        </button>
-        <button class="quote-bt">
-            <a href="resume.html">resume</a>
-        </button>
-        <button class="quote-btn" id="con">Contact me</button>
-    </nav>
-    
-    <section class="resume-section">
-        <div class="nebula-cloud"></div>
-        <h1 class="matrix-text">My Resume</h1>
-        <div class="resume-container">
-            <embed src="" type="application/pdf" width="100%" height="600px" />
-            <a href="resume.pdf" download="Madhu_Resume.pdf" class="download-btn">Download Resume</a>
-        </div>
-    </section>
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <div class="logo">⟪⟫</div>
-                <p>Unlocking Confidence in Every Byte,<br>
-                   Connect with us for a fortress of data security.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">eBooks</a></li>
-                    <li><a href="#">Glossary</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Research</h4>
-                <ul>
-                    <li><a href="#">Leaderboards</a></li>
-                    <li><a href="#">Synthetic Datasets</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                    <li><a href="#">Patents</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Philosophy</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Abluva. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Legal</a> |
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms of Service</a> |
-                <a href="#">Cookie Policy</a>
-            </div>
-            <div class="social-icons">
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X (Twitter)" /></a>
-            </div>
-        </div>
-    </footer>
-    
+  </style>
 </body>
-<script>
-    tsParticles.load("tsparticles", {
-        particles: {
-          number: {
-            value: 40,
-          },
-          size: {
-            value: 2,
-          },
-          move: {
-            enable: true,
-            speed: 1,
-          },
-          color: {
-            value: "#ffffff"
-          },
-          line_linked: {
-            enable: true,
-            color: "#ffffff",
-            opacity: 0.1
-          }
-        },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: true,
-              mode: "grab"
-            }
-          }
-        },
-        background: {
-          color: "transparent"
-        }
-      });
-</script>
 </html>

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall of Fame & Swags</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
+  <meta charset="UTF-8">
+  <title>Vettrivel | Page 2</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <div class="background"></div>
+  <!-- Dynamic Header -->
+<div id="header" style="height: 80px;"></div>
+
+<!-- Load header -->
+<script>
+  $("#header").load("header.html", function () {
+    // Optional: If you want a fade-in effect
+    $("#header").hide().fadeIn(200);
+  });
+</script>
+ <div class="background"></div>
 
   
 
@@ -20,34 +32,7 @@
 
     <!-- Header Section -->
   
-    <nav class="navbar" id="navbar">
-        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
-        <button class="quote-bt">
-            <a href="index.html">Home</a>
-        </button>
-        <button class="quote-bt">
-            <a href="hallofframe.html">Hall of Frame</a>
-        </button>
-        <button class="quote-bt">
-            <a href="Skills.html">Skills</a>
-        </button>
-        <button class="quote-bt">
-            <a href="project.html">Projects</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certify.html">Certificate</a>
-        </button>
-        <button class="quote-bt">
-            <a href="certificate.html">Bugbountry</a>
-        </button>
-        <button class="quote-bt">
-            <a href="resume.html">resume</a>
-        </button>
-    </nav>
-    
-    <div class="neon-container">
-        <h1 class="neon-text">Hall of Fame & Swags</h1>
-    </div>
+  
    
 
     <div class="section">
@@ -162,55 +147,56 @@
         </div>
 
     </div>
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <div class="logo">⟪⟫</div>
-                    <p>Unlocking Confidence in Every Byte,<br>
-                       Connect with us for a fortress of data security.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">eBooks</a></li>
-                        <li><a href="#">Glossary</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Research</h4>
-                    <ul>
-                        <li><a href="#">Leaderboards</a></li>
-                        <li><a href="#">Synthetic Datasets</a></li>
-                        <li><a href="#">Research Papers</a></li>
-                        <li><a href="#">Patents</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">News & Events</a></li>
-                        <li><a href="#">Philosophy</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Abluva. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Legal</a> |
-                    <a href="#">Privacy Policy</a> |
-                    <a href="#">Terms of Service</a> |
-                    <a href="#">Cookie Policy</a>
-                </div>
-              
-            </div>
-        </footer>
-        
-        
-    </div>
+    <script>
+     tsParticles.load("tsparticles", {
+        particles: {
+          number: {
+            value: 40,
+          },
+          size: {
+            value: 2,
+          },
+          move: {
+            enable: true,
+            speed: 1,
+          },
+          color: {
+            value: "#ffffff"
+          },
+          line_linked: {
+            enable: true,
+            color: "#ffffff",
+            opacity: 0.1
+          }
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab"
+            }
+          }
+        },
+        background: {
+          color: "transparent"
+        }
+      });
+</script>
+  <!-- Page-Specific Content -->
+ 
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Inject Header & Footer -->
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
 
     <style>
         * {
@@ -237,75 +223,7 @@
             width: 100%;
             z-index: -1;
           }
-        .navbar {
-            position: fixed;
-            top: 0%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 1100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        color: white;
-            background: rgba(255, 255, 255, 0.05);  /* Very light transparent white */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(80px);           /* Glass blur */
-            -webkit-backdrop-filter: blur(10px);   /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            z-index: 999;
-            transition: all 0.4s ease-in-out;
-        }
-        
-          
-          /* Default Navbar Links */
-          .quote-bt {
-              display: flex;
-              gap: 40px; /* Default space between items */
-              transition: gap 0.4s ease-in-out;
-              margin-top: 10px;
-              background-color: transparent;
-            border-color: transparent;
-              color: white;
-          }
-         
-          
-          .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.4s ease-in-out;
-          }
-          
-          .navbar a:hover {
-            color: #2ca2bf;
-            border-color: white;
-            box-shadow: white; /* or any cool hover color you like */
-          }
-          
       
-      
-      
-          .quote-btn {
-              padding: 10px 20px;
-              background: rgba(255, 255, 255, 0.3); /* Transparent white */
-              color: white;
-              border-radius: 20px;
-              border: none;
-              margin-top: 10px;
-              cursor: pointer;
-              backdrop-filter: blur(5px); /* Initial slight blur */
-              transition: all 0.3s ease-in-out;
-          }
-          
-          .quote-btn:hover {
-              background: rgba(255, 255, 255, 0.5); /* Lighter blur effect */
-              backdrop-filter: blur(10px); /* Stronger blur */
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing effect */
-              transform: scale(1.05); /* Slight zoom effect */
-          }
         body {
             min-height: 100vh;
             background-size: 110% auto;
@@ -346,6 +264,14 @@
             padding: 2rem 0;
             margin-top: 90px;
         }
+           #tsparticles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+      }
 
         .neon-text {
             text-decoration: underline rgb(60, 1, 60);
@@ -370,7 +296,7 @@
             display: flex;
             flex-direction: column;
             align-items: right;
-            margin-left: 650px;
+            margin-left: 710px;
             gap: 2rem;
            margin-top: 200px;
             margin-bottom: 4rem;
@@ -383,6 +309,7 @@
             width: 80px;
             height: 400px;
         }
+        
         
 .down{
     color: white;
@@ -458,6 +385,7 @@
             background-size: cover;
             transition: width 0.3s ease-in-out;
         }
+       
 
         .hof1 { background-image: url("../ALL IMAGES/HALL OF FAME/Flipkart - Hall of Fame.png"); }
         .hof2 { background-image: url("../ALL IMAGES/HALL OF FAME/HoF Hacken.png"); top: 0; height: 100%; }
@@ -550,121 +478,6 @@
 
         .delay-2 { animation-delay: 0.6s; }
         .delay-4 { animation-delay: 1.2s; }
-        .site-footer {
-             background-color: #041c23;
-            color: #cdd1d5;
-            padding: 20px 0;
-            font-family: 'Arial', sans-serif;
-            width: 1300px;
-          margin-top: 160px;
-            height: 450px;
-           
-            
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-        }
-        
-        .footer-section {
-            flex: 1 1 200px;
-            margin: 20px;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.2em;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-section ul li a {
-            color: #cdd1d5;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-section.about .logo {
-            font-size: 30px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9em;
-        }
-        .footer-bottom p{
-            margin-top: 50px;
-        }
-        
-        .footer-links {
-            margin: 10px 0;
-            margin-top: 10px;
-        }
-        
-        .footer-links a {
-            color: #cdd1d5;
-            margin: 0 5px;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-       
-        
-    </style>
-    <script>
-        tsParticles.load("tsparticles", {
-            particles: {
-              number: {
-                value: 40,
-              },
-              size: {
-                value: 2,
-              },
-              move: {
-                enable: true,
-                speed: 1,
-              },
-              color: {
-                value: "#ffffff"
-              },
-              line_linked: {
-                enable: true,
-                color: "#ffffff",
-                opacity: 0.1
-              }
-            },
-            interactivity: {
-              events: {
-                onhover: {
-                  enable: true,
-                  mode: "grab"
-                }
-              }
-            },
-            background: {
-              color: "transparent"
-            }
-          });
-    </script>
-</body>
-</html>
+      </style>
+      </body>
+      </html>

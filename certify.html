@@ -1,13 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Portfolio - Experience</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .background {
+  <meta charset="UTF-8">
+  <title>Vettrivel Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+   <div class="background"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 40 },
+                size: { value: 2 },
+                move: { enable: true, speed: 1 },
+                color: { value: "#ffffff" },
+                line_linked: { enable: true, color: "#ffffff", opacity: 0.1 }
+            },
+            interactivity: { events: { onhover: { enable: true, mode: "grab" } } },
+            background: { color: "transparent" }
+        });
+    </script>
+
+   
+    <section class="experience-section">
+        <div class="left-panel">
+        </div>
+        <div class="right-panel">
+            <div class="content-flow">
+                <div class="experience-block" data-index="0">
+                    <div class="experience-content">
+                        <h3 class="experience-title">Product Security Tool Development Intern | Abluva</h3>
+                        <p class="experience-date">Palo Alto, California (Remote) | October 2024 – Present</p>
+                        <p class="experience-details">Abluva is a cybersecurity company focused on data protection. As an intern, I enhanced security automation and cloud security practices.</p>
+                        <p class="experience-details"><strong>Key Contributions:</strong></p>
+                        <img src="../cvber portofolio/ALL IMAGES/CERTIFICATES/Internship CyberDosti.jpg" alt="Abluva Logo" style="width: 100px; height: auto; margin-bottom: 1rem;">
+                        <ul class="experience-details">
+                            <li>Optimized security tools for vulnerability detection.</li>
+                            <li>Focused on IAM policy assessments and compliance.</li>
+                            <li>Automated security processes.</li>
+                            <li>Integrated threat intelligence into tools.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-block" data-index="1">
+                    <div class="experience-content">
+                        <h3 class="experience-title">Cybersecurity Engineer | CubeAISolutions Tech Pvt Ltd</h3>
+                        <p class="experience-date">August 2024 – October 2024</p>
+                        <p class="experience-details">Worked on enhancing cybersecurity protocols and conducting assessments.</p>
+                        <p class="experience-details"><strong>Key Contributions:</strong></p>
+                        <ul class="experience-details">
+                            <li>Conducted penetration testing and assessments.</li>
+                            <li>Assisted in risk analysis and response.</li>
+                            <li>Implemented asset protection measures.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Duplicate content for continuous flow -->
+                <div class="experience-block" data-index="0">
+                    <div class="experience-content">
+                        <h3 class="experience-title">Product Security Tool Development Intern | Abluva</h3>
+                        <p class="experience-date">Palo Alto, California (Remote) | October 2024 – Present</p>
+                        <p class="experience-details">Abluva is a cybersecurity company focused on data protection. As an intern, I enhanced security automation and cloud security practices.</p>
+                        <p class="experience-details"><strong>Key Contributions:</strong></p>
+                        <ul class="experience-details">
+                            <li>Optimized security tools for vulnerability detection.</li>
+                            <li>Focused on IAM policy assessments and compliance.</li>
+                            <li>Automated security processes.</li>
+                            <li>Integrated threat intelligence into tools.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-block" data-index="1">
+                    <div class="experience-content">
+                        <h3 class="experience-title">Cybersecurity Engineer | CubeAISolutions Tech Pvt Ltd</h3>
+                        <p class="experience-date">August 2024 – October 2024</p>
+                        <p class="experience-details">Worked on enhancing cybersecurity protocols and conducting assessments.</p>
+                        <p class="experience-details"><strong>Key Contributions:</strong></p>
+                        <ul class="experience-details">
+                            <li>Conducted penetration testing and assessments.</li>
+                            <li>Assisted in risk analysis and response.</li>
+                            <li>Implemented asset protection measures.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <script>
+        // Intersection Observer for block animation
+        function observeBlocks() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.experience-block').forEach(block => observer.observe(block));
+        }
+
+        // Initial render
+        observeBlocks();
+    </script>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section about">
+      <div class="logo">⟪⟫</div>
+      <p>Unlocking Confidence in Every Byte,<br>Connect with us for a fortress of data security.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">eBooks</a></li>
+        <li><a href="#">Glossary</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Research</h4>
+      <ul>
+        <li><a href="#">Leaderboards</a></li>
+        <li><a href="#">Synthetic Datasets</a></li>
+        <li><a href="#">Research Papers</a></li>
+        <li><a href="#">Patents</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">News & Events</a></li>
+        <li><a href="#">Philosophy</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Abluva. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Legal</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a> |
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+  <style>
+      .background {
             position: absolute;
             top: 0;
             left: 0;
@@ -166,294 +327,78 @@
                 font-size: 0.9rem;
             }
         }
-        .navbar {
-            position: fixed;
-            top: 0px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 1100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            color: white;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(80px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            z-index: 999;
-            transition: all 0.4s ease-in-out;
-        }
-        .quote-bt {
-            display: flex;
-            gap: 40px;
-            transition: gap 0.4s ease-in-out;
-            margin-top: 10px;
-            background-color: transparent;
-            border-color: transparent;
-            color: white;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.4s ease-in-out;
-        }
-        .navbar a:hover {
-            color: #2ca2bf;
-        }
-        .quote-btn {
-            padding: 10px 20px;
-            background-color: #898a8b;
-            color: white;
-            border-radius: 20px;
-            border: none;
-            margin-top: 10px;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease-in-out;
-        }
-        .quote-btn:hover {
-            background: rgba(6, 63, 92, 0.5);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 10px rgba(10, 55, 95, 0.5);
-            transform: scale(1.05);
-        }
-        .site-footer {
-            background-color: #041c23;
-            color: #cdd1d5;
-            padding: 40px 20px;
-            font-family: 'Arial', sans-serif;
-            width: 1400px;
-            margin: 0;
-            position: relative;
-            margin-left: -100px;
-        }
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .footer-section {
-            flex: 1 1 200px;
-            margin: 20px;
-        }
-        .footer-section h4 {
-            font-size: 1.2em;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-section ul li a {
-            color: #cdd1d5;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-        .footer-section.about .logo {
-            font-size: 30px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .footer-bottom {
-            border-top: 1px solid #063f4f;
-            margin-top: 40px;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        .footer-links {
-            margin: 10px 0;
-        }
-        .footer-links a {
-            color: #cdd1d5;
-            margin: 0 5px;
-            text-decoration: none;
-        }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a img {
-            width: 32px;
-            height: 32px;
-            margin: 0 5px;
-            border-radius: 50%;
-            background-color: #5e3dd4;
-            padding: 6px;
-        }
-    </style>
-</head>
-<body>
-    <div class="background"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script>
-        tsParticles.load("tsparticles", {
-            particles: {
-                number: { value: 40 },
-                size: { value: 2 },
-                move: { enable: true, speed: 1 },
-                color: { value: "#ffffff" },
-                line_linked: { enable: true, color: "#ffffff", opacity: 0.1 }
-            },
-            interactivity: { events: { onhover: { enable: true, mode: "grab" } } },
-            background: { color: "transparent" }
-        });
-    </script>
-
-    <nav class="navbar" id="navbar">
-        <div class="logo" style="color: #7bc0d4; font-size: 20px; font-weight: bold;">Portfolio</div>
-        <button class="quote-bt"><a href="index.html">Home</a></button>
-        <button class="quote-bt"><a href="hallofframe.html">Hall of Frame</a></button>
-        <button class="quote-bt"><a href="Skills.html">Skills</a></button>
-        <button class="quote-bt"><a href="project.html">Projects</a></button>
-        <button class="quote-bt"><a href="certify.html">Certificate</a></button>
-        <button class="quote-bt"><a href="certificate.html">Bugbountry</a></button>
-        <button class="quote-bt"><a href="resume.html">Resume</a></button>
-        <button class="quote-btn" id="con">Contact me</button>
-    </nav>
-
-    <section class="experience-section">
-        <div class="left-panel">
-        </div>
-        <div class="right-panel">
-            <div class="content-flow">
-                <div class="experience-block" data-index="0">
-                    <div class="experience-content">
-                        <h3 class="experience-title">Product Security Tool Development Intern | Abluva</h3>
-                        <p class="experience-date">Palo Alto, California (Remote) | October 2024 – Present</p>
-                        <p class="experience-details">Abluva is a cybersecurity company focused on data protection. As an intern, I enhanced security automation and cloud security practices.</p>
-                        <p class="experience-details"><strong>Key Contributions:</strong></p>
-                        <img src="../cvber portofolio/ALL IMAGES/CERTIFICATES/Internship CyberDosti.jpg" alt="Abluva Logo" style="width: 100px; height: auto; margin-bottom: 1rem;">
-                        <ul class="experience-details">
-                            <li>Optimized security tools for vulnerability detection.</li>
-                            <li>Focused on IAM policy assessments and compliance.</li>
-                            <li>Automated security processes.</li>
-                            <li>Integrated threat intelligence into tools.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-block" data-index="1">
-                    <div class="experience-content">
-                        <h3 class="experience-title">Cybersecurity Engineer | CubeAISolutions Tech Pvt Ltd</h3>
-                        <p class="experience-date">August 2024 – October 2024</p>
-                        <p class="experience-details">Worked on enhancing cybersecurity protocols and conducting assessments.</p>
-                        <p class="experience-details"><strong>Key Contributions:</strong></p>
-                        <ul class="experience-details">
-                            <li>Conducted penetration testing and assessments.</li>
-                            <li>Assisted in risk analysis and response.</li>
-                            <li>Implemented asset protection measures.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Duplicate content for continuous flow -->
-                <div class="experience-block" data-index="0">
-                    <div class="experience-content">
-                        <h3 class="experience-title">Product Security Tool Development Intern | Abluva</h3>
-                        <p class="experience-date">Palo Alto, California (Remote) | October 2024 – Present</p>
-                        <p class="experience-details">Abluva is a cybersecurity company focused on data protection. As an intern, I enhanced security automation and cloud security practices.</p>
-                        <p class="experience-details"><strong>Key Contributions:</strong></p>
-                        <ul class="experience-details">
-                            <li>Optimized security tools for vulnerability detection.</li>
-                            <li>Focused on IAM policy assessments and compliance.</li>
-                            <li>Automated security processes.</li>
-                            <li>Integrated threat intelligence into tools.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-block" data-index="1">
-                    <div class="experience-content">
-                        <h3 class="experience-title">Cybersecurity Engineer | CubeAISolutions Tech Pvt Ltd</h3>
-                        <p class="experience-date">August 2024 – October 2024</p>
-                        <p class="experience-details">Worked on enhancing cybersecurity protocols and conducting assessments.</p>
-                        <p class="experience-details"><strong>Key Contributions:</strong></p>
-                        <ul class="experience-details">
-                            <li>Conducted penetration testing and assessments.</li>
-                            <li>Assisted in risk analysis and response.</li>
-                            <li>Implemented asset protection measures.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <div class="logo">⟪⟫</div>
-                <p>Unlocking Confidence in Every Byte,<br>
-                   Connect with us for a fortress of data security.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">eBooks</a></li>
-                    <li><a href="#">Glossary</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Research</h4>
-                <ul>
-                    <li><a href="#">Leaderboards</a></li>
-                    <li><a href="#">Synthetic Datasets</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                    <li><a href="#">Patents</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Philosophy</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Abluva. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Legal</a> |
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms of Service</a> |
-                <a href="#">Cookie Policy</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Intersection Observer for block animation
-        function observeBlocks() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.experience-block').forEach(block => observer.observe(block));
-        }
-
-        // Initial render
-        observeBlocks();
-    </script>
+          .site-footer {
+    background-color: #041c23;
+      color: #cdd1d5;
+      padding: 40px 20px;
+      font-family: 'Arial', sans-serif;
+      margin-top: 260px;
+      width: 1400px;
+      margin-left: -50px;
+  }
+  
+  .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+  }
+  
+  .footer-section {
+      flex: 1 1 200px;
+      margin: 20px;
+  }
+  
+  .footer-section h4 {
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .footer-section ul li a {
+      color: #cdd1d5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  .footer-section ul li a:hover {
+      text-decoration: underline;
+  }
+  
+  .footer-section.about .logo {
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 10px;
+  }
+  
+  .footer-bottom {
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9em;
+  }
+  
+  .footer-links {
+      margin: 10px 0;
+  }
+  
+  .footer-links a {
+      color: #cdd1d5;
+      margin: 0 5px;
+      text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+      text-decoration: underline;
+  }
+  </style>
 </body>
 </html>
